@@ -135,3 +135,10 @@
     $container.removeClass('mobile-nav-on');
   });
 })(jQuery);
+
+var hero = { 
+  _name: 'John Doe',
+  getSecretIdentity: function (){
+    return this._name;
+  }
+}
