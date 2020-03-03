@@ -1664,9 +1664,9 @@ pre .javascript .function {
   border-bottom: 1px solid #0593d3;
 }
 .post-body p a:hover {
-  color: #fc6423;
+  color: #87427c;
   border-bottom: none;
-  border-bottom: 1px solid #fc6423;
+  border-bottom: 1px solid #87427c;
 }
 .sidebar {
   position: fixed;
@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #634f57;
+  background: #442dff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2876,12 +2876,6 @@ a {
     padding: 0 10px;
   }
 }
-.container .main-inner {
-  background-color: rgba(157,179,198,0.588);
-  padding: 2rem;
-  border-radius: 10px;
-  border: 1px solid #ffc0cb;
-}
 @media (max-width: 767px) {
   .container .main-inner {
     width: auto;
@@ -2925,4 +2919,7 @@ a {
     width: auto;
     text-align: center;
   }
+}
+.tag-cloud-tags > a {
+  color: rgba(255,135,202,0.98) !important;
 }
