@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff553;
+  background: #d6ff74;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2924,15 +2924,13 @@ a {
   color: rgba(255,135,202,0.98) !important;
 }
 .container .main-inner {
-  background-color: white(!important);
   padding: 0 !important;
-  border: none(!important);
 }
 body::before {
-  background-image: url("https://images.unsplash.com/photo-1506220926022-cc5c12acdb35?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+  background-image: url("../../images/blue-pirat.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% -20%;
+  background-position: 50% -17vh;
   content: " ";
   position: fixed;
   width: 100%;
@@ -2956,8 +2954,11 @@ p {
 nav>ul>li>a {
   color: #000;
 }
-.post-body>p {
+.post-body > p {
   text-align: center;
+}
+#posts >article p {
+  text-align: left;
 }
 .footer {
   color: #000;
