@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff7aff;
+  background: #f5f4ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2955,19 +2955,22 @@ p {
   background-image: url("../../images/bird-header.gif");
   background-size: 267px, auto;
 }
-nav>ul>li>a {
-  color: #000;
+nav > ul > li > a {
+  color: #222;
 }
-nav>ul>li>a>i {
+nav > ul > li > a > i {
   color: #e7658f;
 }
 .post-body > p {
   text-align: center;
 }
-#posts >article p {
+#posts > article p {
   text-align: left;
 }
+.tag-cloud-title {
+  color: #ccc;
+}
 .footer {
-  color: rgba(0,0,0,0.6);
+  color: #222;
   background: rgba(245,245,245,0.388);
 }
