@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #753cc6;
+  background: #ff0fff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2947,13 +2947,15 @@ h4,
 h5,
 h6,
 a,
-div,
 .posts-expand .post-title-link,
 p {
   color: #ccc;
 }
 nav>ul>li>a {
   color: #000;
+}
+nav>ul>li>a>i {
+  color: #e7658f;
 }
 .post-body > p {
   text-align: center;
@@ -2962,5 +2964,6 @@ nav>ul>li>a {
   text-align: left;
 }
 .footer {
-  color: #000;
+  color: rgba(0,0,0,0.6);
+  background: rgba(245,245,245,0.388);
 }
