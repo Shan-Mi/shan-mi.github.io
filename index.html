@@ -332,100 +332,14 @@
 
       
         
-          
-            <p>Just like I always mess up with Git, the other guy has no clue about how to do chores on the right way either. Without any doubt or hesitation, spolglans was taken granted to be disking liquid. Well, fair enough.</p>
-<hr>
-<h3 id="Some-commonly-used-git-command"><a href="#Some-commonly-used-git-command" class="headerlink" title="Some commonly used git command"></a>Some commonly used git command</h3><p>1) <code>git log</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 输出概要日志,这条命令等同于</span><br><span class="line"># git log --pretty&#x3D;oneline --abbrev-commit</span><br><span class="line">git log --oneline</span><br><span class="line"></span><br><span class="line"># 指定最近几个提交可以带上 - + 数字</span><br><span class="line">git log --oneline -5</span><br><span class="line"></span><br><span class="line"># 提供类似 GUI 工具的 log 展示</span><br><span class="line">git log --graph --date&#x3D;relative --pretty&#x3D;tformat:&#39;%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset&#39;</span><br></pre></td></tr></table></figure>
-
-<p>2) <code>git status</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 等同 git status --long,查看当前工作区暂存区变动</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"># 概要信息 (--short)</span><br><span class="line">git status -s</span><br><span class="line"></span><br><span class="line"># 查询工作区中是否有stash存在（暂存的东西）,有则提醒该工作区有几个 stash</span><br><span class="line">git status  --show-stash</span><br></pre></td></tr></table></figure>
-
-<p>3) <code>git checkout</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 分支切换</span><br><span class="line">git checkout dev # local branch</span><br><span class="line"></span><br><span class="line"># 切换远程分支</span><br><span class="line">git checkout origin&#x2F;test # remote branch</span><br><span class="line"></span><br><span class="line"># 基于远程分支创建本地分支，并跟踪对应来自 &#39;origin&#39; 的远程分支</span><br><span class="line">git checkout --track origin&#x2F;feature-test # new local branch wih remote branch</span><br><span class="line"></span><br><span class="line"># 基于本地分支开出新分支</span><br><span class="line">git checkout -b testbranch # new local branch with current branch</span><br><span class="line"></span><br><span class="line"># 彻底丢弃某个文件的改动</span><br><span class="line">git checkout -- file</span><br><span class="line"></span><br><span class="line"># 放弃本地所有改动</span><br><span class="line">git checkout&#96; .</span><br><span class="line"></span><br><span class="line"># 切换上一个分支</span><br><span class="line">git checkout -</span><br></pre></td></tr></table></figure>
-
-<p>4) <code>git commit</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># 新修改的内容,添加到上次提交中,减少提交的日志</span><br><span class="line"># --no-edit:是跳过进入编辑器，直接提交</span><br><span class="line"># git commit --amend这条命令等同于</span><br><span class="line"># $ git reset --soft HEAD^</span><br><span class="line"># $ ... do something  tree ...</span><br><span class="line"># $ git commit -c ORIG_HEAD</span><br><span class="line">git commit --amend --no-edit</span><br><span class="line"></span><br><span class="line"># 跳过校验直接提交,包括任何 githooks</span><br><span class="line">git commit --no-verify -m &quot;xxx&quot;</span><br><span class="line"></span><br><span class="line"># 带提交概要信息</span><br><span class="line">git commit -m &quot;xxx&quot;</span><br><span class="line"></span><br><span class="line"># 指定目录格式提交</span><br><span class="line"># -t &lt;file&gt;, --template&#x3D;&lt;file&gt;</span><br><span class="line"># 也可以从全局或者项目级别指定提交的模板文件</span><br><span class="line"># git config [--global] commit.template xxx</span><br><span class="line"># 现在一般都是 用社区的npm规范包，commitizen 和 commitlint 来规范提交</span><br><span class="line">git commit -t templateFile</span><br><span class="line"></span><br><span class="line"># 提交信息从文件读取,可以结合上面的一起用</span><br><span class="line">git commit -F</span><br></pre></td></tr></table></figure>
-
-<p>5) <code>git reset</code><br><em>Widely used for rollback, esp. –hard</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 硬性回滚,简单粗暴，直接抛弃回滚之后改动(log 还是有保留，内容不要而已)</span><br><span class="line">git reset --hard commit_sha1</span><br><span class="line"></span><br><span class="line"># 软性回滚, 跟 rebase 常规用法差不多的效果，可以把提交的东西丢回暂存区和工作区，</span><br><span class="line"># HEAD 的指向改变会对应的 commit,之后再考虑怎么 commit</span><br><span class="line">git reset --soft commit_sha1</span><br><span class="line"></span><br><span class="line"># 软回滚一个版本,可以理解为撤销最近一次的 commit</span><br><span class="line">git reset --soft HEAD~1</span><br><span class="line"></span><br><span class="line"># 清除暂存区但保留工作区变动。</span><br><span class="line">git reset --mixed commit_sha1</span><br><span class="line"></span><br><span class="line"># 保留工作区和暂存区之间的差异。</span><br><span class="line">git reset --merge commit_sha1</span><br><span class="line"></span><br><span class="line"># 保留工作区和HEAD之间的差异</span><br><span class="line">git reset --keep commit_sha1</span><br></pre></td></tr></table></figure>
-
-<p>6) <code>git revert</code><br><em>Used for master rollback, especially for multiple users, making rollback steadily without conflict</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 回滚到某个 commit</span><br><span class="line">git revert commit-sha1</span><br></pre></td></tr></table></figure>
-
-<p>7) <code>git rebase</code><br><em>Keeping out commit clean</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 带 -i 可以进入交互模式，效果如下</span><br><span class="line">git rebase -i git-sha1|branch(HEAD)</span><br><span class="line"></span><br><span class="line"># 若是中间毫无冲突，变基则一步到位，否则需要逐步调整。</span><br><span class="line">git rebase --continue # 提交变更后继续变基下一步</span><br><span class="line">git rebase --skip # 引起冲突的commits会被丢弃，continue提示没有需要改动的也可以用这个跳过</span><br><span class="line">git rebase --abort # 若是变基改残废了，但是走到一半，可以彻底回滚变基之前的状态</span><br></pre></td></tr></table></figure>
-<ul>
-<li>pick: 是保留该 commit(采用)</li>
-<li>edit: 一般你提交的东西多了,可以用这个把东东拿回工作区拆分更细的 commit</li>
-<li>reword: 这个可以重新修改你的 commit msg</li>
-<li>squash: 内容保留，把提交信息往上一个 commit 合并进去</li>
-<li>fixup: 保留变动内容，但是抛弃 commit msg</li>
-<li>drop: 用的比较少，无用的改动你会提交么！！！</li>
-</ul>
-<p><strong>OBS</strong>:</p>
-<ul>
-<li>本地提交之前，最好把基准点变为需要合并的分支，这样提交 PR/MR 的时侯就不会冲突(本地来解决冲突)</li>
-<li>不要在公共分支上<code>rebase</code>！！！一变其他协作者基本都一堆冲突！除非你们有很清晰的分支管理机制 </li>
-</ul>
-<p>8) <code>git merge</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># --ff 是指fast-forward命令,当使用ff模式进行合并时，将不会创造一个新的commit节点。</span><br><span class="line"># --no-ff,保留合并分支的提交记录,一般主干用的比较多.</span><br><span class="line"># --ff-only 除非当前HEAD节点为最新节点或者能够用ff模式进行合并，否则拒绝合并并返回一个失败状态。</span><br><span class="line"># --squash 则类似 rebase squash,可以把合并多个 commit 变成一个</span><br><span class="line">git merge --no-ff branchName</span><br></pre></td></tr></table></figure>
-
-<p>9) <code>git pull</code><br><code>git pull</code>中用的最多是带<code>--rebase(-r)</code>的方式(变基形式拉取合并代码),保持分支一条线。</p>
-<p>默认的<code>pull</code>会走<code>ff</code>模式,多数情况会产生新的<code>commit</code>,部分参数与 <code>merge</code>提供一致。</p>
-<p>10) <code>git push</code></p>
-<blockquote>
-<p>当本地分支存在，远程分支不存在的时侯，可以这样推送关联的远程分支</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 这样会直接新建一个同名的远程分支</span><br><span class="line">git push origin localbranch </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 删除远程分支(--delete)</span><br><span class="line">git push -d origin branchName</span><br><span class="line"></span><br><span class="line"># 推送所有标签</span><br><span class="line">git push --tags</span><br><span class="line"></span><br><span class="line"># 推送 commit 关联的 tags</span><br><span class="line">git push --follow-tags</span><br><span class="line"></span><br><span class="line"># 强制推送(--force)</span><br><span class="line">git push -f origin branchName # 一般合理的项目，主干都做了分支保护,不会允许强推行为</span><br><span class="line"></span><br><span class="line"># 有时候真的需要强推的时侯,但可不可以柔和一点呢？</span><br><span class="line"># 就是当前远程分支和你本地一致,没有别人提交的情况下可以强推</span><br><span class="line"># --force-with-lease: 若是远程有人提交，此次强推失败，反之成功</span><br><span class="line">git push --force-with-lease</span><br></pre></td></tr></table></figure>
-
-<p>11) <code>git remote</code></p>
-<blockquote>
-<p>这个东西用在你需要考虑维护多个地方仓库的时侯会考虑，或者修改仓库源的时侯</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 常规关联本地 git init 到远程仓库的姿势</span><br><span class="line">git remote add origin url</span><br><span class="line"></span><br><span class="line"># 新增其他上游仓</span><br><span class="line">git remote add github url</span><br><span class="line"></span><br><span class="line"># 修改推送源</span><br><span class="line">git remote set-url  origin(或者其他上游域) url</span><br></pre></td></tr></table></figure>
-
-<p>12) <code>git branch</code></p>
-<blockquote>
-<p>该命令用的最多的就是删除本地分支，重命名分支，删除远程分支</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 分支删除，拷贝，重命名，参数若是大写就等同多了--force，强制执行</span><br><span class="line"># -c, --copy : 复制分支，</span><br><span class="line"># -C：等同于 --copy --force</span><br><span class="line"># -d, --delete: 删除分支</span><br><span class="line"># -m, --move：移动或者重命名分支</span><br><span class="line">git branch -d branchName</span><br><span class="line">git branch -M oldBranch newNameBranch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 手动指定它的当前分支的上游分支,两个写法一致的</span><br><span class="line"># 有关联一般也有取消关联，--unset-upstream</span><br><span class="line">git branch --set-upstream-to&#x3D;origin&#x2F;xxx </span><br><span class="line">git branch --set-upstream-to origin xxx</span><br></pre></td></tr></table></figure>
-
-<p>13) <code>git stash</code></p>
-<blockquote>
-<p>强烈建议给每个 stash 添加描述信息！！！</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 缓存当前工作区的内容到stashName, save 这个现在不怎么推荐用，图方便也能用</span><br><span class="line"># -a|--all: 除了未跟踪的文件，其他变动的文件都会保存</span><br><span class="line"># -u|--include-untracked：包括没有添加到暂存区的文件</span><br><span class="line">git stash save stashName</span><br><span class="line">git stash -u save stashName</span><br><span class="line"></span><br><span class="line"># 现在基本推荐用 push,因为有 pop，语义上和维护上更清晰</span><br><span class="line"># 上面有的参数，它也有，还有-m 来备注这个 stash 的大概情况</span><br><span class="line">git stash push -m &quot;更改了 xx&quot; </span><br><span class="line"></span><br><span class="line"># 有保存那肯定也有取用的</span><br><span class="line"># pop: 取会删除对应的保存记录</span><br><span class="line"># apply: 取但保留记录</span><br><span class="line"># 0就是--index,这个东西哪里来的呢？</span><br><span class="line">git stash apply stash@&#123;0&#125;</span><br><span class="line">git stash pop stash@&#123;0&#125;</span><br><span class="line"></span><br><span class="line"># 查看stash 保存记录</span><br><span class="line"># eg: stash@&#123;0&#125;: On dev: 测试</span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 只想删除暂存记录怎么办：</span><br><span class="line"># clear : 清空所有 stash</span><br><span class="line"># drop: 清除指定的 stash</span><br><span class="line">git stash clear # 慎用！</span><br><span class="line">git stash drop stash@&#123;0&#125;</span><br><span class="line"></span><br><span class="line"># 想看 stash 做了什么改动，类似简化版的git diff</span><br><span class="line">git stash show stash@&#123;0&#125;</span><br></pre></td></tr></table></figure>
-
-<p>14) <code>git reflog</code></p>
-<blockquote>
-<p>这个命令的强大之处，是记录了所有行为，包括你<code>rebase</code>,<code>merge</code>, <code>reset</code> 这些<br>当我们不小心硬回滚的时侯,或变基错了都可以在这里找到行为之前的<code>commit</code>，然后回滚。<br>当然这个时间回溯也只在<strong>本地</strong>有用，你推送到远程分支的<strong>破坏性</strong>改动,该凉还是得凉。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 最近五次行为,不带-n 则默认所有</span><br><span class="line">git reflog -5</span><br></pre></td></tr></table></figure>
-
-<p>15) <code>git cherry-pick</code></p>
-<blockquote>
-<p>这个东西你可以理解为你去买橘子，你会专门挑一些符合心意的橘子放到购物篮中。<br>你可以从多个分支同时挑取部分需要的 <code>commit</code> 合并到同一个地方去，是不是贼骚。<br>这货和变基有点类似，但是仅仅类似，挑过来的 <code>commit</code> 若是没有冲突则追加。<br>有冲突会中断，解决后 <code>--continue</code></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 在当前分支挑其他分支的 commit，把那部分的变动那过来</span><br><span class="line">git cherry-pick commit-sha1</span><br><span class="line"></span><br><span class="line"># 支持一次性拿多个</span><br><span class="line">git cherry-pick master~4 master~2</span><br><span class="line"></span><br><span class="line"># 支持区间, 区间中间是 .. </span><br><span class="line">git cherry-pick startGitSha1..endGitSha1</span><br><span class="line"></span><br><span class="line"># --continue：继续 pick,一般有冲突解决后才需要这样</span><br><span class="line"># --skip：跳过这次进入队列下一次行为 </span><br><span class="line"># --abort : 完全放弃 pick，恢复 pick 之前的状态</span><br><span class="line"># --quit: 未冲突的自动变更，冲突的不要，退出这次 pick</span><br><span class="line"># 这几个状态跟变基差不多,解决冲突继续，跳过处理，放弃这次pick,不输出错误</span><br></pre></td></tr></table></figure>
-<p>16) <code>git rm</code></p>
-<blockquote>
-<p>这个命令在旧的版本用的比较最多的姿势是为了重新索引.gitignore 的范围</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 删除某个文件的索引</span><br><span class="line"># --cache 不会删除硬盘中的文件，只是 git 索引(缓存)的关系！！！</span><br><span class="line">git rm --cache -- file</span><br><span class="line"></span><br><span class="line"># 递归清除全部所有索引(也可以理解为缓存吧),这个姿势适合重新让.gitignore 新范围生效</span><br><span class="line">git rm -r --cached .  </span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;xxx&quot;</span><br></pre></td></tr></table></figure>
-
-<p>17) <code>git rev-parse</code></p>
-<blockquote>
-<p>可以通过这个快速获取部分<code>git</code>仓库的信息</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 获取最新有效的commit</span><br><span class="line"># --short：显示七位的 sha1,不带就是全部</span><br><span class="line"># --verify: 校验是否有效commit</span><br><span class="line"># HEAD: 当前分支的head 指向</span><br><span class="line">git rev-parse --short HEAD --verify</span><br><span class="line"></span><br><span class="line"># 显示仓库的绝对路径</span><br><span class="line">git rev-parse --show-toplevel #eg: &#x2F;Users&#x2F;linqunhe&#x2F;Code&#x2F;aozhe&#x2F;thinking-ui</span><br><span class="line"></span><br><span class="line"># 显示版本库.git 目录所在的位置</span><br><span class="line">git rev-parse --git-dir</span><br><span class="line"></span><br><span class="line"># 显示所有关联引用的 git sha1</span><br><span class="line">git rev-parse --all</span><br></pre></td></tr></table></figure>
-
-<p>18) <code>git diff</code></p>
-<blockquote>
-<p>对于这个命令，在终端比对用的不是很频繁，除了少量改动的时侯可能会用这个看看。其他情况下我更倾向于用 <strong>GUI</strong> 工具来看，因为比对更加直观。</p>
-</blockquote>
-
-          
+          <p>Just like I always mess up with Git, the other guy has no clue about how to do chores on the right way either. Without any doubt or hesitation, spolglans was taken granted to be disking liquid. Well, fair enough.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/03/Unbelievable-creature/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -553,17 +467,14 @@
 
       
         
-          
-            <p>Have been struggled for almost two days for a simple problem. Yeah, it&#39;s about this experimental blog. How am I supposed to set these icons? I have followed all the instructions clearly enough. Delete - copy a new one - input something in git bash - generate - and boooom doesn&#39;t work.</p>
-<p>The thing kept happening is <code>%20</code> or in another word - one extra space in the URL. In the end, I decided to ignore all the info from Google, and delete all the unnessesary spaces:</p>
-<p><em>This is what I was told I should follow:</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">home: &#x2F; || home</span><br><span class="line">#about: &#x2F;about&#x2F; || user</span><br><span class="line">#tags: &#x2F;tags&#x2F; || tags</span><br><span class="line">#categories: &#x2F;categories&#x2F; || th</span><br><span class="line">archives: &#x2F;archives&#x2F; || archive</span><br><span class="line">#schedule: &#x2F;schedule&#x2F; || calendar</span><br><span class="line">#sitemap: &#x2F;sitemap.xml || sitemap</span><br><span class="line">#commonweal: &#x2F;404&#x2F; || heartbeat</span><br></pre></td></tr></table></figure>
-<p><em>What I did in the end</em>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">home: &#x2F;||home</span><br><span class="line">about: &#x2F;about&#x2F;||user</span><br><span class="line">tags: &#x2F;tags&#x2F;||tags</span><br><span class="line">archives: &#x2F;archives&#x2F;||archive</span><br></pre></td></tr></table></figure>
-
-<p>Then I can begin to do something else, eg. my lousy Swedish personal brev. God please help me…</p>
-
-          
+          <p>Have been struggled for almost two days for a simple problem. Yeah, it&#39;s about this experimental blog. How am I supposed to set these icons? I have followed all the instructions clearly enough. Delete - copy a new one - input something in git bash - generate - and boooom doesn&#39;t work.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/02/Got-crumpled-by-a-grain-of-sand/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -691,47 +602,18 @@
 
       
         
-          
-            <p>想写点啥，又被熊孩子吵得头大，感觉心力交瘁有心无力……回头再编辑。</p>
+          <p>想写点啥，又被熊孩子吵得头大，感觉心力交瘁有心无力……回头再编辑。</p>
 <hr>
 <p>Finally, litle peaceful time for myself. What I have done today technically is nothing - went through some basic methods about string/array/object again which makes me sick especilly when you do that in your car. When I read about how this guy who works in NetEase harnesses reduce as a rag doll, it makes me doubting again if I have a functional brain or I have already got Alzheimer&#39;s.</p>
 <p>And the other thing is changed theme for this experimental blog, although I still haven&#39;t finished my own website&#39;s <strong>いろいろ</strong> problems.</p>
 <p>Then let&#39;s just go through some fundamental stuff.</p>
-<hr>
-<p>1) Array methods</p>
-<p>基于ES6，<strong>改变自身值</strong>的方法一共有9个，分别为<code>pop</code>、<code>push</code>、<code>reverse</code>、<code>shift</code>、<code>sort</code>、<code>splice</code>、<code>unshift</code>，以及两个ES6新增的方法<code>copyWithin</code> 和 <code>fill</code>。</p>
-<p>基于ES7，<strong>不会改变自身</strong>的方法一共有9个，分别为<code>concat</code>、<code>join</code>、<code>slice</code>、<code>toString</code>、<code>toLocateString</code>、<code>indexOf</code>、<code>lastIndexOf</code>、未标准的<code>toSource</code>以及ES7新增的方法<code>includes</code>。</p>
-<p><strong>遍历：</strong><br>基于ES6，不会改变自身的方法一共有12个，分别为<code>forEach</code>、<code>every</code>、<code>some</code>、<code>filter</code>、<code>map</code>、<code>reduce</code>、<code>reduceRight</code> 以及ES6新增的方法<code>entries</code>、<code>find</code>、<code>findIndex</code>、<code>keys</code>、<code>values</code>。</p>
-<hr>
-<p>2) String methods</p>
-<p>字符串原型方法分为<strong>两种</strong>，一种是<strong>html无关的方法</strong>，一种是<strong>html有关的方法</strong>。我们先看第一种。但是无论字符串方法如何厉害，都==不==至于强大到可以==改变原字符串==。</p>
-<p>通常，字符串中，==常用的方法==就<code>charAt</code>、<code>indexOf</code>、<code>lastIndexOf</code>、<code>match</code>、<code>replace</code>、<code>search</code>、<code>slice</code>、<code>split</code>、<code>substr</code>、<code>substring</code>、<code>toLowerCase</code>、<code>toUpperCase</code>、<code>trim</code>、<code>valueof</code> 等这些。熟悉它们的语法规则就能熟练地驾驭字符串。</p>
-<p><code>concat</code></p>
-<blockquote>
-<p>concat 的性能表现不佳，强烈推荐使用赋值操作符（+或+=）代替 concat。”+” 操作符大概快了 concat 几十倍。</p>
-</blockquote>
-<p><code>slice</code></p>
-<blockquote>
-<p>slice() 方法提取字符串的一部分，并返回新的字符串。该方法有些类似 Array.prototype.slice 方法。</p>
-</blockquote>
-<p><code>toString</code> <code>valueOf</code><br>这两个方法都是返回字符串本身。</p>
-<blockquote>
-<p>语法：<code>str.toString()</code>, <code>str.valueOf()</code></p>
-</blockquote>
-<p>对于对象而言，toString和valueOf也是非常的相似，它们之间有着细微的差别，请尝试运行以下一段代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = &#123;</span><br><span class="line">    toString: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="string">"test"</span>; &#125;,</span><br><span class="line">    valueOf: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="number">123</span>; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// test</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"x="</span> + x); <span class="comment">// "x=123"</span></span><br><span class="line"><span class="built_in">console</span>.log(x + <span class="string">"=x"</span>); <span class="comment">// "123=x"</span></span><br><span class="line"><span class="built_in">console</span>.log(x + <span class="string">"1"</span>); <span class="comment">// 1231</span></span><br><span class="line"><span class="built_in">console</span>.log(x + <span class="number">1</span>); <span class="comment">// 124</span></span><br><span class="line"><span class="built_in">console</span>.log([<span class="string">"x="</span>, x].join(<span class="string">""</span>)); <span class="comment">// "x=test"</span></span><br></pre></td></tr></table></figure>
-<p><strong>当 “+” 操作符一边为数字时，对象x趋向于转换为数字，表达式会优先调用 valueOf 方法，如果调用数组的 join 方法，对象x趋向于转换为字符串，表达式会优先调用 toString 方法。</strong></p>
-<p><code>trim</code> <em>不支持IE9以下的低版本IE浏览器</em></p>
-<blockquote>
-<p>trim() 方法清除字符串首尾的空白并返回。</p>
-</blockquote>
-<p>语法：<code>str.trim()</code></p>
-<hr>
-<p>3) Object methods</p>
-<p>常用的API主要有<code>Object.prototype.toString()</code>，<code>Object.prototype.hasOwnProperty()</code>， <code>Object.getPrototypeOf(obj)</code>，<code>Object.create()</code>，<code>Object.defineProperty</code>，<code>Object.keys(obj)</code>,<code>Object.assign()</code>。</p>
-<p><code>Object.keys()</code> and <code>Array.forEach()</code> 结合使用，实现object的foreach循环遍历。<br><em><a href="https://gomakethings.com/the-es6-way-to-loop-through-objects-with-vanilla-javascript/" target="_blank" rel="noopener">https://gomakethings.com/the-es6-way-to-loop-through-objects-with-vanilla-javascript/</a></em></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/01/2020-03-01-Kungsberg-igen/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
