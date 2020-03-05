@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff87db;
+  background: #6effeb;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2954,6 +2954,13 @@ p {
 #header {
   background-image: url("../../images/bird-header.gif");
   background-size: 267px, auto;
+}
+@media screen and (max-width: 768px) {
+  #header {
+    background-position: center top;
+    background-repeat-y: no-repeat;
+    background-size: 790px;
+  }
 }
 nav > ul > li > a {
   color: #222;
