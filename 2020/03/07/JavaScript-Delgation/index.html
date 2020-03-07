@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="ZZ original 1、这是前端面试的经典题型，要去找工作的小伙伴看看还是有帮助的； 2、其实我一直都没弄明白，写这个一是为了备忘，二是给其他的知其然不知其所以然的小伙伴们以参考；">
+<meta name="description" content="Q: What is Event Delegation? A: A way you can add an event listener once for multiple elements with support for adding extra children.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Delgation">
 <meta property="og:url" content="http://yoursite.com/2020/03/07/JavaScript-Delgation/index.html">
 <meta property="og:site_name" content="Fanfan&#39;s Blog">
-<meta property="og:description" content="ZZ original 1、这是前端面试的经典题型，要去找工作的小伙伴看看还是有帮助的； 2、其实我一直都没弄明白，写这个一是为了备忘，二是给其他的知其然不知其所以然的小伙伴们以参考；">
+<meta property="og:description" content="Q: What is Event Delegation? A: A way you can add an event listener once for multiple elements with support for adding extra children.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-06T23:15:12.000Z">
-<meta property="article:modified_time" content="2020-03-06T23:41:00.966Z">
+<meta property="article:modified_time" content="2020-03-07T09:45:01.493Z">
 <meta property="article:author" content="Shan Mi">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -336,11 +336,13 @@
       
 
       
-        <p><em>ZZ</em> <a href="https://www.cnblogs.com/liugang-vip/p/5616484.html" target="_blank" rel="noopener">original</a></p>
-<p>1、这是<strong>前端面试</strong>的经典题型，要去找工作的小伙伴看看还是有帮助的；</p>
-<p>2、其实我一直都没弄明白，写这个一是为了备忘，二是给其他的知其然不知其所以然的小伙伴们以参考；</p>
+        <p>Q: What is Event Delegation?</p>
+<p>A: A way you can add an event listener once for multiple elements with support for adding extra children.</p>
 <a id="more"></a>
 
+<p><em>ZZ</em> <a href="https://www.cnblogs.com/liugang-vip/p/5616484.html" target="_blank" rel="noopener">original</a></p>
+<p>1、这是<strong>前端面试</strong>的经典题型，要去找工作的小伙伴看看还是有帮助的；</p>
+<p>2、其实我一直都没弄明白，写这个一是为了备忘，二是给其他的知其然不知其所以然的小伙伴们以参考；</p>
 <h3 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h3><p>那什么叫<strong>事件委托</strong>呢？它还有一个名字叫<strong>事件代理</strong>，JavaScript 高级程序设计上讲：事件委托就是利用事件<strong>冒泡</strong>，只指定一个事件处理程序，就可以管理某一类型的所有事件。那这是什么意思呢？网上的各位大牛们讲事件委托基本上都用了同一个例子，就是取快递来解释这个现象，我仔细揣摩了一下，这个例子还真是恰当，我就不去想别的例子来解释了，借花献佛，我摘过来，大家认真领会一下事件委托到底是一个什么原理：</p>
 <p>有三个同事预计会在周一收到快递。为签收快递，有两种办法：一是三个人在公司门口等快递；二是委托给前台 MM 代为签收。现实当中，我们大都采用委托的方案（公司也不会容忍那么多员工站在门口就为了等快递）。前台 MM 收到快递后，她会判断收件人是谁，然后按照收件人的要求签收，甚至代为付款。这种方案还有一个优势，那就是即使公司里来了新员工（不管多少），前台 MM 也会在收到寄给新员工的快递后核实并代为签收。</p>
 <p>这里其实还有 2 层意思的：</p>
@@ -362,6 +364,7 @@
 
 <p>这里用父级 ul 做事件处理，当 li 被点击时，由于冒泡原理，事件就会冒泡到 ul 上，因为 ul 上有点击事件，所以事件就会触发，当然，这里当点击 ul 的时候，也是会触发的，那么问题就来了，如果我想让事件代理的效果跟直接给节点的事件效果一样怎么办，比如说只有点击 li 才会触发，不怕，我们有绝招：</p>
 <p><code>Event</code> 对象提供了一个属性叫 <code>target</code>，可以返回事件的目标节点，我们成为事件源，也就是说，<code>target</code> 就可以表示为当前的事件操作的 dom，但是不是真正操作 dom，当然，这个是有兼容性的，标准浏览器用 <code>ev.target</code>，IE 浏览器用 <code>event.srcElement</code>，此时只是获取了当前节点的位置，并不知道是什么节点名称，这里我们用 nodeName 来获取具体是什么标签名，这个返回的是一个大写的，我们需要转成小写再做比较（习惯问题）：</p>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><p><em>I think we can use <code>target.matches(&quot;li&quot;)</code> here to check if we click li-element and then implement the cb. It seems easy and effecient.</em></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　<span class="keyword">var</span> oUl = <span class="built_in">document</span>.getElementById(<span class="string">"ul1"</span>);</span><br><span class="line">　oUl.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">　  <span class="keyword">var</span> ev = ev || <span class="built_in">window</span>.event;</span><br><span class="line">　  <span class="keyword">var</span> target = ev.target || ev.srcElement;</span><br><span class="line">　  <span class="keyword">if</span>(target.nodeName.toLowerCase() == <span class="string">'li'</span>)&#123;</span><br><span class="line">　　  alert(<span class="number">123</span>);</span><br><span class="line">　　  alert(target.innerHTML);</span><br><span class="line">　　&#125;</span><br><span class="line">　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这样改下就只有点击 li 会触发事件了，且每次只执行一次 dom 操作，如果 li 数量很多的话，将大大减少 dom 的操作，优化的性能可想而知！</p>
@@ -407,7 +410,13 @@
 <p>不适合的就有很多了，举个例子，<code>mousemove</code>，每次都要计算它的位置，非常不好把控，在不如说<code>focus</code>，<code>blur</code>之类的，本身就没用冒泡的特性，自然就不能用事件委托了。</p>
 <p>好了，今天就到这里，下次我想介绍一下事件绑定，欢迎大家关注和阅读，以上纯属个人见解，如有不对的地方，万望指正，不胜感谢！</p>
 <hr>
-<p>I will definitely need to read this article repeatedly many times…</p>
+<p>I will definitely need to read this article repeatedly many times…or maybe not, too many redundant explainations above.</p>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p>We can use <code>Element.matches()</code> to check if we click the target element.</p>
+<p><strong>Usage</strong><br><code>let result = element.matches(selectorString);</code></p>
+<ul>
+<li>result: true / false.</li>
+<li>selectorString: css selector string.</li>
+</ul>
 
       
     </div>
@@ -583,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述："><span class="nav-number">1.</span> <span class="nav-text">概述：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要用事件委托："><span class="nav-number">1.1.</span> <span class="nav-text">为什么要用事件委托：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件委托的原理："><span class="nav-number">1.2.</span> <span class="nav-text">事件委托的原理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件委托怎么实现："><span class="nav-number">1.3.</span> <span class="nav-text">事件委托怎么实现：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结："><span class="nav-number">2.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述："><span class="nav-number">1.</span> <span class="nav-text">概述：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要用事件委托："><span class="nav-number">1.1.</span> <span class="nav-text">为什么要用事件委托：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件委托的原理："><span class="nav-number">1.2.</span> <span class="nav-text">事件委托的原理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件委托怎么实现："><span class="nav-number">1.3.</span> <span class="nav-text">事件委托怎么实现：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notes"><span class="nav-number">2.</span> <span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结："><span class="nav-number">3.</span> <span class="nav-text">总结：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Update"><span class="nav-number">4.</span> <span class="nav-text">Update</span></a></li></ol></div>
             
 
           </div>
