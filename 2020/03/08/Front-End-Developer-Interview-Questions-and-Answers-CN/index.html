@@ -87,7 +87,7 @@
 <meta property="og:description" content="作者：飞跃疯人院链接来源：掘金">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-08T10:10:25.000Z">
-<meta property="article:modified_time" content="2020-03-08T11:15:15.464Z">
+<meta property="article:modified_time" content="2020-03-08T17:28:31.022Z">
 <meta property="article:author" content="Shan Mi">
 <meta property="article:tag" content="Interview">
 <meta name="twitter:card" content="summary">
@@ -300,7 +300,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-03-08T12:15:15+01:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-08T18:28:31+01:00">
                 2020-03-08
               </time>
             
@@ -636,14 +636,9 @@
 <blockquote>
 <p>问：你知道的解决跨域的方式有几种？</p>
 </blockquote>
-<ul>
-<li>JSONP: 利用script标签不受同源策略限制，具体可以参考40行封装一个jsonp包。    </li>
-<li>CORS：使用自定义的HTTP头部让浏览器和服务器进行沟通，实现CORS的关键是后端，服务端设置Access-Control-Allow-Origin就可以开启，表示哪些域名可以访问资源。   </li>
-<li>document.domain：当二级域名相同时，例如a.test.html和b.test.html，只需要给两个页面都设置document.domain = ‘test.html’，就可以实现跨域。    </li>
-<li>postMessage：如a.html页面通过iframe嵌入了b.html页面，其中一个可以通过postMessage方法发送信息，另一页面通过监听message事件判断来源并接受消息。</li>
-</ul>
+<p>  <strong>JSONP</strong>: 利用script标签不受同源策略限制，具体可以参考40行封装一个jsonp包。<br>  <strong>CORS</strong>：使用自定义的HTTP头部让浏览器和服务器进行沟通，实现CORS的关键是后端，服务端设置Access-Control-Allow-Origin就可以开启，表示哪些域名可以访问资源。<br>  <strong>document.domain</strong>：当二级域名相同时，例如a.test.html和b.test.html，只需要给两个页面都设置document.domain = ‘test.html’，就可以实现跨域。<br>  <strong>postMessage</strong>：如a.html页面通过iframe嵌入了b.html页面，其中一个可以通过postMessage方法发送信息，另一页面通过监听message事件判断来源并接受消息。</p>
 <blockquote>
-<p>问：cookie和session分别是什么？</p>
+<p>问：<code>cookie</code>和<code>session</code>分别是什么？</p>
 </blockquote>
 <p>  cookie是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器发起请求时被携带并发送到服务器，它通常是告知服务端两个请求是否来自同一浏览器，保持用户的登录状态。<br>  session代表着服务器在和客户端一次会话的过程，存储着用户会话所需的属性及配置信息，当用户在不同页面之间跳转时，使整个用户会话一直存在。</p>
 <blockquote>
