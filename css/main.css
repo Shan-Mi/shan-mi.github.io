@@ -1832,7 +1832,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c2bdba;
+  background: #99a44a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2938,7 +2938,7 @@ body::before {
   top: 0;
   left: 0;
   z-index: -2;
-  background-color: #000;
+  background-color: #131114;
 }
 h1,
 h2,
@@ -2980,4 +2980,16 @@ nav > ul > li > a > i {
 .footer {
   color: #222;
   background: rgba(245,245,245,0.388);
+  margin: 0;
+  padding: 0;
+}
+.links-of-author a:before {
+  display: none;
+}
+.post-meta a:hover {
+  color: #87daff;
+}
+.sidebar a:hover {
+  color: #87daff;
+  border-bottom-color: #87daff;
 }
