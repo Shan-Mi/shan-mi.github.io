@@ -1002,7 +1002,6 @@ pre .javascript .function {
 .pagination .next,
 .pagination .page-number {
   border-bottom: 0;
-  border-top: 1px solid #eee;
   transition-property: border-color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -1831,7 +1830,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b97c50;
+  background: #e3b061;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2997,8 +2996,15 @@ nav > ul > li > a > i {
   color: #87daff;
   border-bottom-color: #87daff;
 }
+.pagination .prev,
+.pagination .next,
+.pagination .page-number {
+  margin-top: 5px;
+  width: 8px;
+}
 a.extend.prev:hover,
-a.page-number:hover {
+a.page-number:hover,
+a.extend.next:hover {
   color: #87daff;
   background-color: #808080;
   border-radius: 50%;
