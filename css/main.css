@@ -1037,7 +1037,6 @@ pre .javascript .function {
   .pagination .page-number {
     margin-bottom: 10px;
     border-top: 0;
-    border-bottom: 1px solid #eee;
     padding: 0 10px;
   }
   .pagination .prev:hover,
@@ -1832,7 +1831,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6b39c2;
+  background: #5d877e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2997,4 +2996,14 @@ nav > ul > li > a > i {
 .sidebar a:hover {
   color: #87daff;
   border-bottom-color: #87daff;
+}
+a.extend.prev:hover,
+a.page-number:hover {
+  color: #87daff;
+  background-color: #808080;
+  border-radius: 50%;
+}
+.pagination span.page-number.current {
+  background-color: #536a53;
+  border-radius: 50%;
 }
