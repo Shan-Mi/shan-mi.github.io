@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="random,axios," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Well, after 3 rounds Ben Ming Nian plus this horrible 2020 which seems to have no sign to getting better, birthday comes again.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Birthday again &amp; notes about axios">
+<meta property="og:url" content="http://yoursite.com/2020/03/31/postBirthday-again/index.html">
+<meta property="og:site_name" content="Fanfan&#39;s Blog">
+<meta property="og:description" content="Well, after 3 rounds Ben Ming Nian plus this horrible 2020 which seems to have no sign to getting better, birthday comes again.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.ibb.co/9qjc4Ms/axios.png">
+<meta property="article:published_time" content="2020-03-31T13:44:52.000Z">
+<meta property="article:modified_time" content="2020-03-31T14:55:42.266Z">
+<meta property="article:author" content="Shan Mi">
+<meta property="article:tag" content="random">
+<meta property="article:tag" content="axios">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ibb.co/9qjc4Ms/axios.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/31/postBirthday-again/"/>
+
+
+
+
+
+  <title>Birthday again & notes about axios | Fanfan's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fanfan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Better than ever</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/31/postBirthday-again/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shan Mi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fanfan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Birthday again & notes about axios</h1>
+        
+
+        <div class="post-meta">
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-31T15:44:52+02:00">
+                2020-03-31
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-31T16:55:42+02:00">
+                2020-03-31
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/31/postBirthday-again/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2020/03/31/postBirthday-again/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Well, after 3 rounds Ben Ming Nian plus this horrible 2020 which seems to have no sign to getting better, birthday comes again.</p>
+<a id="more"></a>
+
+<p>Used to set ambitious goals at the beginning of new year, and failed to achieve none of them. Surprisingly I managed to get one small goal done - now I have been keeping training for 21 days in a row, at least 60 mins everyday.</p>
+<p>Many Chinese foreign students flee away from UK, USA, and other places from all over the world back to their hometown. Feel little jealous for them.</p>
+<p>For couple of weeks ago, I started one Udemy course which I have bought for quite a while, and in the last project - which I have not finished yet, just get bible, webpack, npm etc part done - I get know little about axios, so decide to take some notes here.</p>
+<h4 id="Q-What-is-axios"><a href="#Q-What-is-axios" class="headerlink" title="Q: What is axios"></a>Q: What is axios</h4><pre><code>A:
+Axios is a modern JavaScript library built on top of XMLHttpRequest for making AJAX calls.
+REACT/VUE officially recommend to use axios to make AJAX requests
+Documentation: github.com/axios/axios</code></pre><h4 id="Q-Features"><a href="#Q-Features" class="headerlink" title="Q: Features"></a>Q: Features</h4><pre><code>A:
+Make XMLHttpRequests from the browser
+Make http requests from node.js
+Supports the Promise API
+Intercept request and response
+Transform request and response data
+Cancel requests
+Automatic transforms for JSON data
+Client side support for protecting against XSRF</code></pre><h4 id="Create-instance"><a href="#Create-instance" class="headerlink" title="Create instance"></a>Create instance</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">"axios"</span>;</span><br><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">  baseURL: <span class="string">"host address"</span>,</span><br><span class="line">  timeout: <span class="number">5000</span>,</span><br><span class="line">  headers: &#123; <span class="string">"X-Custom-Header"</span>: <span class="string">"foobar"</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> axios.create(config);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Create-instance-1"><a href="#Create-instance-1" class="headerlink" title="Create instance"></a>Create instance</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> axiosObj = axios.create();</span><br><span class="line"></span><br><span class="line"><span class="comment">// axios setting</span></span><br><span class="line">axiosObj.defaults.timeout = <span class="number">5000</span>;</span><br><span class="line"><span class="keyword">let</span> axiosDate;</span><br><span class="line"><span class="comment">// http request intercepter</span></span><br><span class="line">axiosObj.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  config.withCredentials = <span class="literal">true</span>; <span class="comment">// CORS check if takes cookie</span></span><br><span class="line">  <span class="keyword">if</span> (store.state.token) &#123;</span><br><span class="line">    config.headers.Authorization = <span class="string">`token <span class="subst">$&#123;store.state.token&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (</span><br><span class="line">    (config.data &amp;&amp; config.data.loading === <span class="string">"false"</span>) ||</span><br><span class="line">    (config.params &amp;&amp; config.params.loading === <span class="string">"false"</span>) ||</span><br><span class="line">    config.loading === <span class="string">"false"</span></span><br><span class="line">  ) &#123;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    axiosDate = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    store.dispatch(<span class="string">"LOADING"</span>, <span class="literal">true</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> axiosConfig = <span class="number">1</span> ? fn(config) : config;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> accept = config.headers.common[<span class="string">"Accept"</span>];</span><br><span class="line">  <span class="keyword">if</span> (accept == <span class="literal">null</span>) &#123;</span><br><span class="line">    accept = <span class="string">"*/*"</span>;</span><br><span class="line">    config.headers[<span class="string">"Accept"</span>] = accept;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> date = config.headers[<span class="string">"date"</span>];</span><br><span class="line">  <span class="keyword">if</span> (date == <span class="literal">null</span>) &#123;</span><br><span class="line">    date = <span class="string">""</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> contentType = config.headers[<span class="string">"contentType"</span>];</span><br><span class="line">  <span class="keyword">if</span> (contentType == <span class="literal">null</span>) &#123;</span><br><span class="line">    contentType = <span class="string">""</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> &#123; method, url, params &#125; = config;</span><br><span class="line">  config.headers[<span class="string">"X-x"</span>] = <span class="string">"x"</span>;</span><br><span class="line">  config.headers[<span class="string">"X-x"</span>] = <span class="string">"x"</span>;</span><br><span class="line">  <span class="keyword">return</span> config;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Change-axios-39-s-setting"><a href="#Change-axios-39-s-setting" class="headerlink" title="Change axios&#39;s setting"></a>Change axios&#39;s setting</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">axios.defaults.baseURL = <span class="string">"https://api.example.com"</span>;</span><br><span class="line">axios.defaults.headers.common[<span class="string">"Authorization"</span>] = AUTH_TOKEN;</span><br><span class="line">axios.defaults.headers.post[<span class="string">"Content-Type"</span>] =</span><br><span class="line">  <span class="string">"application/x-www-form-urlencoded"</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Instance-default-setting"><a href="#Instance-default-setting" class="headerlink" title="Instance default setting"></a>Instance default setting</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// change setting when create instance</span></span><br><span class="line"><span class="keyword">var</span> instance = axios.create(&#123;</span><br><span class="line">  baseURL: <span class="string">"https://api.example.com"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// change setting after instance was created</span></span><br><span class="line">instance.defaults.headers.common[<span class="string">"Authorization"</span>] = AUTH_TOKEN;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Available-instance-methods-additional-declared-configuration-will-be-merged-with-instance-configuration"><a href="#Available-instance-methods-additional-declared-configuration-will-be-merged-with-instance-configuration" class="headerlink" title="Available instance methods, additional declared configuration will be merged with instance configuration"></a>Available instance methods, additional declared configuration will be merged with instance configuration</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">axios#request(config)</span><br><span class="line">axios#get(url[, config])</span><br><span class="line">axios#delete(url[, config])</span><br><span class="line">axios#head(url[, config])</span><br><span class="line">axios#options(url[, config])</span><br><span class="line">axios#post(url[, data[, config]])</span><br><span class="line">axios#put(url[, data[, config]])</span><br><span class="line">axios#patch(url[, data[, config]])</span><br></pre></td></tr></table></figure>
+
+<h4 id="Config-39-s-priority-request-config-gt-instance-defaults-gt-default"><a href="#Config-39-s-priority-request-config-gt-instance-defaults-gt-default" class="headerlink" title="Config&#39;s priority, request config &gt; instance.defaults &gt; default"></a>Config&#39;s priority, request config &gt; instance.defaults &gt; default</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// create an instance, and now timeout = 0 as default</span></span><br><span class="line"><span class="keyword">var</span> instance = axios.create();</span><br><span class="line"></span><br><span class="line"><span class="comment">// instance.defaults set timeout = 2500 ms, which has higher priority than default</span></span><br><span class="line">instance.defaults.timeout = <span class="number">2500</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// request config reset timeout = 5s，and its priority is highest</span></span><br><span class="line">instance.get(<span class="string">"/longRequest"</span>, &#123;</span><br><span class="line">  timeout: <span class="number">5000</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Other-config"><a href="#Other-config" class="headerlink" title="Other config"></a>Other config</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// `auth': HTTP is used as basic authentication scheme</span></span><br><span class="line"><span class="comment">// set one `Authorization' header to overwrite any existing `Authorization' Custom-Header to use `headers` config</span></span><br><span class="line">auth: &#123;</span><br><span class="line">username: <span class="string">'janedoe'</span>,</span><br><span class="line">password: <span class="string">'s00pers3cret'</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">"./axios.js"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getData = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> axios.get(<span class="string">"url"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>Examples<br><img style="width: 50%; margin: 0;" src="https://i.ibb.co/9qjc4Ms/axios.png" alt="axios intercepters" border="0"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/random/" rel="tag"># random</a>
+          
+            <a href="/tags/axios/" rel="tag"># axios</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/23/CSS-triangle/" rel="next" title="CSS triangle">
+                <i class="fa fa-chevron-left"></i> CSS triangle
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Shan Mi" />
+            
+              <p class="site-author-name" itemprop="name">Shan Mi</p>
+              <p class="site-description motion-element" itemprop="description">You will never know</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Shan-Mi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shan.mi.fanfan@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-What-is-axios"><span class="nav-number">1.</span> <span class="nav-text">Q: What is axios</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-Features"><span class="nav-number">2.</span> <span class="nav-text">Q: Features</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-instance"><span class="nav-number">3.</span> <span class="nav-text">Create instance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Create-instance-1"><span class="nav-number">4.</span> <span class="nav-text">Create instance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Change-axios-39-s-setting"><span class="nav-number">5.</span> <span class="nav-text">Change axios&#39;s setting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Instance-default-setting"><span class="nav-number">6.</span> <span class="nav-text">Instance default setting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Available-instance-methods-additional-declared-configuration-will-be-merged-with-instance-configuration"><span class="nav-number">7.</span> <span class="nav-text">Available instance methods, additional declared configuration will be merged with instance configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Config-39-s-priority-request-config-gt-instance-defaults-gt-default"><span class="nav-number">8.</span> <span class="nav-text">Config&#39;s priority, request config &gt; instance.defaults &gt; default</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-config"><span class="nav-number">9.</span> <span class="nav-text">Other config</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Usage"><span class="nav-number">10.</span> <span class="nav-text">Usage</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shan Mi</span>
+
+  
+</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  View:<span id="busuanzi_value_site_uv"></span> times
+</span>
+</div>
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      visits
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      visits
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shanmi.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2020/03/31/postBirthday-again/';
+          this.page.identifier = '2020/03/31/postBirthday-again/';
+          this.page.title = 'Birthday again & notes about axios';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shanmi.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
+
