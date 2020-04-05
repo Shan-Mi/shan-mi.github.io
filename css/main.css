@@ -1830,7 +1830,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e077c4;
+  background: #175cff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3012,4 +3012,18 @@ a.extend.next:hover {
 .pagination span.page-number.current {
   background-color: #536a53;
   border-radius: 50%;
+}
+.post-nav-prev a,
+.post-nav-next a {
+  color: #ffb000;
+}
+.post-nav-item a:hover {
+  color: rgba(255,200,0,0.69);
+}
+.posts-expand .post-tags a {
+  background: #999;
+  border-radius: 51% 49% 48% 52%/46% 34% 66% 54%;
+}
+.post-tags>a {
+  color: #e9ff36;
 }
