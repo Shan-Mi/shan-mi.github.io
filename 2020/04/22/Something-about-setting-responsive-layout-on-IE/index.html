@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CSS,note," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Recently, we are doing the so-called first big project, and one among those horrible nightmares is that we need to get our website support IE, well the good thing is that we only need to support one o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Something about setting responsive layout on IE">
+<meta property="og:url" content="http://yoursite.com/2020/04/22/Something-about-setting-responsive-layout-on-IE/index.html">
+<meta property="og:site_name" content="Fanfan&#39;s Blog">
+<meta property="og:description" content="Recently, we are doing the so-called first big project, and one among those horrible nightmares is that we need to get our website support IE, well the good thing is that we only need to support one o">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-22T07:34:24.000Z">
+<meta property="article:modified_time" content="2020-04-22T07:52:43.272Z">
+<meta property="article:author" content="Shan Mi">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="note">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/22/Something-about-setting-responsive-layout-on-IE/"/>
+
+
+
+
+
+  <title>Something about setting responsive layout on IE | Fanfan's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fanfan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Better than ever</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/22/Something-about-setting-responsive-layout-on-IE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shan Mi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fanfan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Something about setting responsive layout on IE</h1>
+        
+
+        <div class="post-meta">
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-22T09:34:24+02:00">
+                2020-04-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-04-22T09:52:43+02:00">
+                2020-04-22
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/22/Something-about-setting-responsive-layout-on-IE/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2020/04/22/Something-about-setting-responsive-layout-on-IE/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Recently, we are doing the so-called first big project, and one among those horrible nightmares is that we need to get our website support IE, well the good thing is that we only need to support one of these versions. This damn thing took me almost 3 days to eventually get a relatively - at least for now - good solution.</p>
+<a id="more"></a>
+<p>In the beginning, I got lost in those tricks or hacks or using extra style-sheet old tricks and ended up with using Conditional Style Sheets which worked for IE 9. But bad news is I had to use float layout for the whole page to get a similar result, which is quite unacceptable. Besides, how to transpile JavaScript so that let it work on IE is another story.</p>
+<p>So continue Google and YouTube, the next try is to use <code>@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { /* IE10+ CSS styles go here */ }</code> this trick, but here comes another problem, that is I cannot nest media query inside of it, or maybe I just don’t know how to do that.</p>
+<p>Then come to stage 3, kinda final solution at least for this project, that is to use feature query and combind it with media query, plus use some tricks to target IE 11 because IE 11 is acting just like a child who has no idea what to do or where to go, you just need to assign everything for him.</p>
+<p>And! Sass rocks! I have no idea I can do so many unbellievable things with it. Sass function, loop thing is soooo cool! Really should spend some time on it.</p>
+<p><strong>Talk is cheap, show me the code.</strong></p>
+<h3 id="This-is-just-for-IE’s-responsive-layout"><a href="#This-is-just-for-IE’s-responsive-layout" class="headerlink" title="This is just for IE’s responsive layout"></a>This is just for IE’s responsive layout</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">$elements: 12;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@for</span> $i from <span class="number">1</span> to $elements &#123;</span><br><span class="line">  .product-container&gt; :nth-child(#&#123;$i &#125;) &#123;</span><br><span class="line">    -ms-grid-row: $i + $i -1 !important;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Width between 650px - 975px 2 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">975px</span>) <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">650px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.product-container</span> &#123;</span><br><span class="line">    <span class="attribute">-ms-grid-columns</span>: <span class="number">300px</span> <span class="number">2em</span> <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  $elements: 12;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">@for</span> $i from <span class="number">1</span> to $elements &#123;</span><br><span class="line">    .product-container&gt; :nth-child(#&#123;$i*2 - 1&#125;) &#123;</span><br><span class="line">      -ms-grid-row: $i !important;</span><br><span class="line">      <span class="selector-tag">-ms-grid-column</span>: 1 !<span class="selector-tag">important</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .product-container&gt; :nth-child(#&#123;$i*2&#125;) &#123;</span><br><span class="line">      -ms-grid-row: $i !important;</span><br><span class="line">      <span class="selector-tag">-ms-grid-column</span>: 3 !<span class="selector-tag">important</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Width between 976px - 1280px 3 */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">1360px</span>) <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">976px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.product-container</span> &#123;</span><br><span class="line">    <span class="attribute">-ms-grid-columns</span>: <span class="number">300px</span> <span class="number">2rem</span> <span class="number">300px</span> <span class="number">2rem</span> <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  $elements: 12;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">@for</span> $i from <span class="number">0</span> to $elements &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 1/4/7/10/.. */</span></span><br><span class="line">    .product-container&gt; :nth-child(#&#123;$i*3 + 1&#125;) &#123;</span><br><span class="line">      -ms-grid-row: $i + 1 !important;</span><br><span class="line">      <span class="selector-tag">-ms-grid-column</span>: 1 !<span class="selector-tag">important</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 2/5/8/11/... */</span></span><br><span class="line">    .product-container&gt; :nth-child(#&#123;$i*3 + 2&#125;) &#123;</span><br><span class="line">      -ms-grid-row: $i + 1 !important;</span><br><span class="line">      <span class="selector-tag">-ms-grid-column</span>: 3 !<span class="selector-tag">important</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 3/6/9/12/... */</span></span><br><span class="line">    .product-container&gt; :nth-child(#&#123;$i*3 + 3&#125;) &#123;</span><br><span class="line">      -ms-grid-row: $i + 1 !important;</span><br><span class="line">      <span class="selector-tag">-ms-grid-column</span>: 5 !<span class="selector-tag">important</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* When screen's width &gt; 1280, 4 col */</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">1360px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.product-container</span> &#123;</span><br><span class="line">    -ms-grid-columns: 300px 3rem 300px 3rem 300px 3rem 300px; //control max-width of each card</span><br><span class="line">    <span class="selector-tag">margin</span>: <span class="selector-tag">auto</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  $elements: 12;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">@for</span> $i from <span class="number">0</span> to $elements &#123;</span><br><span class="line">    .product-container&gt; :nth-child(#&#123;$i*4 + 1&#125;) &#123;</span><br><span class="line">      -ms-grid-row: $i + 1 !important;</span><br><span class="line">      <span class="selector-tag">-ms-grid-column</span>: 1 !<span class="selector-tag">important</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .product-container&gt; :nth-child(#&#123;$i*4 + 2&#125;) &#123;</span><br><span class="line">      -ms-grid-row: $i + 1 !important;</span><br><span class="line">      <span class="selector-tag">-ms-grid-column</span>: 3 !<span class="selector-tag">important</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .product-container&gt; :nth-child(#&#123;$i*4 + 3&#125;) &#123;</span><br><span class="line">      -ms-grid-row: $i + 1 !important;</span><br><span class="line">      <span class="selector-tag">-ms-grid-column</span>: 5 !<span class="selector-tag">important</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .product-container&gt; :nth-child(#&#123;$i*4 + 4&#125;) &#123;</span><br><span class="line">      -ms-grid-row: $i + 1 !important;</span><br><span class="line">      <span class="selector-tag">-ms-grid-column</span>: 7 !<span class="selector-tag">important</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Feature-queries-and-media-queries-can-be-nested"><a href="#Feature-queries-and-media-queries-can-be-nested" class="headerlink" title="Feature queries and media queries can be nested"></a>Feature queries and media queries can be nested</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@supports</span> (<span class="attribute">display:</span> grid) &#123;</span><br><span class="line">  <span class="selector-class">.product-container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-row-gap</span>: <span class="number">2em</span>;</span><br><span class="line">    <span class="attribute">justify-items</span>: center;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">300px</span>;</span><br><span class="line"></span><br><span class="line">    @media screen and (min-width: 680px) &#123;</span><br><span class="line">      <span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(2, 300<span class="selector-tag">px</span>);</span><br><span class="line">      grid-column-gap: calc((100vw - 680px) / 2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">1012px</span>) &#123;</span><br><span class="line">      <span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(3, 300<span class="selector-tag">px</span>);</span><br><span class="line">      grid-column-gap: calc((100vw - 964px) / 3);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">1321px</span>) &#123;</span><br><span class="line">      <span class="selector-tag">grid-template-columns</span>: <span class="selector-tag">repeat</span>(4, 300<span class="selector-tag">px</span>);</span><br><span class="line">      <span class="selector-tag">grid-column-gap</span>: 20<span class="selector-tag">px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Feature-query-is-quite-flexable"><a href="#Feature-query-is-quite-flexable" class="headerlink" title="Feature query is quite flexable"></a>Feature query is quite flexable</h3><p>You can put a feature query whenever you need</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.grid-box</span> &#123;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span><br><span class="line"></span><br><span class="line">    @supports (display: grid) &#123;</span><br><span class="line">      <span class="selector-tag">margin-bottom</span>: 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/note/" rel="tag"># note</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/05/PHP-Patterns-Singleton/" rel="next" title="PHP Patterns: Singleton">
+                <i class="fa fa-chevron-left"></i> PHP Patterns: Singleton
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Shan Mi" />
+            
+              <p class="site-author-name" itemprop="name">Shan Mi</p>
+              <p class="site-description motion-element" itemprop="description">You will never know</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Shan-Mi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shan.mi.fanfan@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#This-is-just-for-IE’s-responsive-layout"><span class="nav-number">1.</span> <span class="nav-text">This is just for IE’s responsive layout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature-queries-and-media-queries-can-be-nested"><span class="nav-number">2.</span> <span class="nav-text">Feature queries and media queries can be nested</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature-query-is-quite-flexable"><span class="nav-number">3.</span> <span class="nav-text">Feature query is quite flexable</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shan Mi</span>
+
+  
+</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  View:<span id="busuanzi_value_site_uv"></span> times
+</span>
+</div>
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      visits
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      visits
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shanmi.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2020/04/22/Something-about-setting-responsive-layout-on-IE/';
+          this.page.identifier = '2020/04/22/Something-about-setting-responsive-layout-on-IE/';
+          this.page.title = 'Something about setting responsive layout on IE';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shanmi.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
+
