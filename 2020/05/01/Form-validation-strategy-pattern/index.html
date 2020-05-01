@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,note," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="This time, it can be considered as Project work round 2, and this time the mission is do the form valition by JavaScript. Frankly speaking, I don&#39;t even have a clear clue about what I am going to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Form validation (strategy pattern)">
+<meta property="og:url" content="http://yoursite.com/2020/05/01/Form-validation-strategy-pattern/index.html">
+<meta property="og:site_name" content="Fanfan&#39;s Blog">
+<meta property="og:description" content="This time, it can be considered as Project work round 2, and this time the mission is do the form valition by JavaScript. Frankly speaking, I don&#39;t even have a clear clue about what I am going to">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-01T19:37:16.000Z">
+<meta property="article:modified_time" content="2020-05-01T20:29:49.313Z">
+<meta property="article:author" content="Shan Mi">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="note">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/05/01/Form-validation-strategy-pattern/"/>
+
+
+
+
+
+  <title>Form validation (strategy pattern) | Fanfan's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fanfan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Better than ever</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/01/Form-validation-strategy-pattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shan Mi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fanfan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Form validation (strategy pattern)</h1>
+        
+
+        <div class="post-meta">
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-01T21:37:16+02:00">
+                2020-05-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-05-01T22:29:49+02:00">
+                2020-05-01
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/01/Form-validation-strategy-pattern/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2020/05/01/Form-validation-strategy-pattern/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>This time, it can be considered as Project work round 2, and this time the mission is do the form valition by JavaScript. Frankly speaking, I don&#39;t even have a clear clue about what I am going to do (or if I was able to do anything about that) until some morning - after I read one article from my APP - then the whole thing became clearly enough. And in a awesome and <strong>reusable</strong> way of course.</p>
+<a id="more"></a>
+<p>There are actually three parts, and the core is to create encapsulation so that you can reuse this pattern. <strong>IIFE</strong> is implemented to avoid creating global variables.</p>
+<p>1) form-opt.js<br>2) rule-list.js<br>3) call these validation patterns</p>
+<h3 id="1-create-stratege-Class"><a href="#1-create-stratege-Class" class="headerlink" title="1) create stratege Class"></a>1) create stratege Class</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _validator = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">ruleList</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      strategyFn: [],<span class="comment">//Store strategy methods</span></span><br><span class="line">      ruleList: ruleList,<span class="comment">//Strategies\' list to check</span></span><br><span class="line">      add: <span class="function"><span class="keyword">function</span> (<span class="params">dom, rules</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> that = <span class="keyword">this</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = rules.length; i &lt; len; i++) &#123;</span><br><span class="line">          ;</span><br><span class="line">          (<span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">            that.strategyFn.push(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                    * method: name of strategy(including eg. parameter minLength: 6)</span></span><br><span class="line"><span class="comment">                    * errMsg </span></span><br><span class="line"><span class="comment">                    * methodName: name of method</span></span><br><span class="line"><span class="comment">                    * info: store parameter, value, method\'s name and errMsg</span></span><br><span class="line"><span class="comment">                    * ruleList: use apply to pass parameter to specified method</span></span><br><span class="line"><span class="comment">                 */</span></span><br><span class="line">              <span class="keyword">let</span> info = []</span><br><span class="line">              <span class="keyword">let</span> method = rules[i].strategy.split(<span class="string">":"</span>),</span><br><span class="line">                methodName = method[<span class="number">0</span>],</span><br><span class="line">                errMsg = rules[i].msg,</span><br><span class="line">                val = dom.value</span><br><span class="line">              info.push(val)</span><br><span class="line">              <span class="keyword">if</span> (method[<span class="number">1</span>]) &#123;</span><br><span class="line">                info.push(method[<span class="number">1</span>])</span><br><span class="line">              &#125;</span><br><span class="line">              info.push(errMsg)</span><br><span class="line">              <span class="keyword">return</span> that.ruleList[methodName].apply(dom, info)</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;)(i)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      start: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="comment">//iterate ruleList to catch error</span></span><br><span class="line">        <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="keyword">this</span>.strategyFn) &#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="keyword">this</span>.strategyFn.hasOwnProperty(i)) &#123;</span><br><span class="line">            <span class="keyword">let</span> msg = <span class="keyword">this</span>.strategyFn[i]()</span><br><span class="line">            <span class="keyword">if</span> (msg) &#123;</span><br><span class="line">              <span class="keyword">return</span> msg</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-write-your-own-stratege-methods-for-validation"><a href="#2-write-your-own-stratege-methods-for-validation" class="headerlink" title="2) write your own stratege methods for validation"></a>2) write your own stratege methods for validation</h3><p><em>In my case, here are the code I used</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* rule-list */</span></span><br><span class="line"><span class="keyword">const</span> _rules = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> rulelist = &#123;</span><br><span class="line">    isBlank: <span class="function"><span class="keyword">function</span> (<span class="params">value, errorMsg</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (value === <span class="string">""</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> errorMsg</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    isName: <span class="function"><span class="keyword">function</span> (<span class="params">value, errorMsg</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// uppercase/lowercase/multiple words</span></span><br><span class="line">      <span class="keyword">if</span> (!<span class="regexp">/^[a-zA-Z-ÅÖÄåöäéáó\s]+(\.)?/</span>.test(value)) &#123;</span><br><span class="line">        <span class="keyword">return</span> errorMsg</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    minLength: <span class="function"><span class="keyword">function</span> (<span class="params">value, length, errorMsg</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (value.length &lt; length) &#123;</span><br><span class="line">        <span class="keyword">return</span> errorMsg</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    maxLength: <span class="function"><span class="keyword">function</span> (<span class="params">value, length, errorMsg</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (value.length &gt; length) &#123;</span><br><span class="line">        <span class="keyword">return</span> errorMsg</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    isPhone: <span class="function"><span class="keyword">function</span> (<span class="params">value, errorMsg</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">const</span> reg1 = <span class="regexp">/\+?(?:0&#123;0,2&#125;[46]*)&#123;1&#125;7&#123;1&#125;[0-9]&#123;8&#125;/</span></span><br><span class="line">      <span class="comment">/* Matches 0798789678 */</span></span><br><span class="line">      <span class="keyword">const</span> reg2 = <span class="regexp">/^(([+]\d&#123;2&#125;[ ][1-9]\d&#123;0,2&#125;[ ])|([0]\d&#123;1,3&#125;[-]))((\d&#123;2&#125;([ ]\d&#123;2&#125;)&#123;2&#125;)|(\d&#123;3&#125;([ ]\d&#123;3&#125;)*([ ]\d&#123;2&#125;)+))$/</span></span><br><span class="line">      <span class="comment">/* Matches 	+46 8 123 456 78 | 08-123 456 78 | 0123-456 78 */</span></span><br><span class="line">      <span class="keyword">if</span> (!reg1.test(value) &amp;&amp; !reg2.test(value)) &#123;</span><br><span class="line">        <span class="keyword">return</span> errorMsg</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    isEmail: <span class="function"><span class="keyword">function</span> (<span class="params">value, errorMsg</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (</span><br><span class="line">        !<span class="regexp">/^[a-zA-Z0-9.!#$%&amp;'*+/=?^_`&#123;|&#125;~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]&#123;0,61&#125;[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]&#123;0,61&#125;[a-zA-Z0-9])?)*$/</span>.test(</span><br><span class="line">          value</span><br><span class="line">        )</span><br><span class="line">      ) &#123;</span><br><span class="line">        <span class="keyword">return</span> errorMsg</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    isSpace: <span class="function"><span class="keyword">function</span> (<span class="params">value, errorMsg</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (</span><br><span class="line">        [...value].every(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> item === <span class="string">" "</span></span><br><span class="line">        &#125;)</span><br><span class="line">      ) &#123;</span><br><span class="line">        <span class="keyword">return</span> errorMsg</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    isAdress: <span class="function"><span class="keyword">function</span> (<span class="params">value, errorMsg</span>) </span>&#123;</span><br><span class="line">      <span class="comment">/* Pattern: uppercase/lowercase/multiple words allowed*/</span></span><br><span class="line">      <span class="keyword">const</span> reg1 = <span class="regexp">/^[a-zA-Z0-9-ÅÖÄåöäéáó\s]+(\.)?(\d&#123;1,&#125;)(\.)?([a-zA-Z0-9-ÅÖÄåöäéáó\s]&#123;0,&#125;)$/</span></span><br><span class="line">      <span class="keyword">if</span> (!reg1.test(value)) &#123;</span><br><span class="line">        <span class="keyword">return</span> errorMsg</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    isPcode: <span class="function"><span class="keyword">function</span> (<span class="params">value, errorMsg</span>) </span>&#123;</span><br><span class="line">      <span class="comment">/* very rough way, not accurate enough */</span></span><br><span class="line">      <span class="keyword">if</span> (!<span class="regexp">/^\d&#123;3&#125;\s*\d&#123;2&#125;$/</span>.test(value)) &#123;</span><br><span class="line">        <span class="keyword">return</span> errorMsg</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    isCounty: <span class="function"><span class="keyword">function</span> (<span class="params">value, errorMsg</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// first letter no longer required to be capitalized</span></span><br><span class="line">      <span class="keyword">if</span> (!<span class="regexp">/^([A-Za-zÅÖÄåöäéáó])[a-zöäåéáó]+/</span>.test(value)) &#123;</span><br><span class="line">        <span class="keyword">return</span> errorMsg</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    rulelist: rulelist,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Create-an-instance-and-begin-our-validation-with-customized-errmsg"><a href="#3-Create-an-instance-and-begin-our-validation-with-customized-errmsg" class="headerlink" title="3) Create an instance and begin our validation with customized errmsg"></a>3) Create an instance and begin our validation with customized errmsg</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Create instance and pass ruleList*/</span></span><br><span class="line"><span class="keyword">const</span> validator = _validator(_rules.rulelist)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Choose form */</span></span><br><span class="line"><span class="keyword">const</span> forms = <span class="built_in">document</span>.querySelector(<span class="string">".checkout-form"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Add strategies */</span></span><br><span class="line">validator.add(forms.email, [&#123;</span><br><span class="line">    strategy: <span class="string">"isBlank"</span>,</span><br><span class="line">    msg: <span class="string">"Var god ange en email-address"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isSpace"</span>,</span><br><span class="line">    msg: <span class="string">"Var god fyll i uppgiftsfälten"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isEmail"</span>,</span><br><span class="line">    msg: <span class="string">"Ange en giltig email-address"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">validator.add(forms.fname, [&#123;</span><br><span class="line">    strategy: <span class="string">"isBlank"</span>,</span><br><span class="line">    msg: <span class="string">"Var god ange ett förnamn"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isSpace"</span>,</span><br><span class="line">    msg: <span class="string">"Var god fyll i uppgiftsfälten"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isName"</span>,</span><br><span class="line">    msg: <span class="string">"Ange namn med stor bokstav, använd endast bokstäver"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"minLength:2"</span>,</span><br><span class="line">    msg: <span class="string">"Ange minst 2 bokstäver"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"maxLength:20"</span>,</span><br><span class="line">    msg: <span class="string">"Förnamn får ej vara längre än 20 tecken"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">validator.add(forms.lname, [&#123;</span><br><span class="line">    strategy: <span class="string">"isBlank"</span>,</span><br><span class="line">    msg: <span class="string">"Ange efternamn"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isSpace"</span>,</span><br><span class="line">    msg: <span class="string">"Var god fyll i uppgiftsfälten"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isName"</span>,</span><br><span class="line">    msg: <span class="string">"Ange namn med stor bokstav, använd endast bokstäver"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"minLength:2"</span>,</span><br><span class="line">    msg: <span class="string">"Ange minst 2 bokstäver"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"maxLength:20"</span>,</span><br><span class="line">    msg: <span class="string">"Förnamn får ej vara längre än 20 tecken"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">validator.add(forms.phone, [&#123;</span><br><span class="line">    strategy: <span class="string">"isBlank"</span>,</span><br><span class="line">    msg: <span class="string">"Ange ett telefonnummer"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isSpace"</span>,</span><br><span class="line">    msg: <span class="string">"Var god fyll i uppgiftsfälten"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isPhone"</span>,</span><br><span class="line">    msg: <span class="string">"Ange ett giltigt telefonnummer"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">validator.add(forms.adress, [&#123;</span><br><span class="line">    strategy: <span class="string">"isBlank"</span>,</span><br><span class="line">    msg: <span class="string">"Ange en adress"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isAdress"</span>,</span><br><span class="line">    msg: <span class="string">"felaktig adress, ange en giltig adress"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isSpace"</span>,</span><br><span class="line">    msg: <span class="string">"Please input valid text"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">validator.add(forms.pcode, [&#123;</span><br><span class="line">    strategy: <span class="string">"isBlank"</span>,</span><br><span class="line">    msg: <span class="string">"Ange ett postnummer"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isSpace"</span>,</span><br><span class="line">    msg: <span class="string">"Var god fyll i uppgiftsfälten"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isPcode"</span>,</span><br><span class="line">    msg: <span class="string">"Ange ett giltigt postnummer"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">validator.add(forms.county, [&#123;</span><br><span class="line">    strategy: <span class="string">"isBlank"</span>,</span><br><span class="line">    msg: <span class="string">"Ange stad"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isSpace"</span>,</span><br><span class="line">    msg: <span class="string">"Var god fyll i uppgiftsfälten"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    strategy: <span class="string">"isCounty"</span>,</span><br><span class="line">    msg: <span class="string">"Ange en giltig stad"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<p>In the end, keep several functions that can also be reused.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatName</span>(<span class="params">nameAreaValue</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> nameAreaValue.split(<span class="string">' '</span>)</span><br><span class="line">      .filter(<span class="function"><span class="params">name</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (name != <span class="string">''</span>) <span class="keyword">return</span> name;</span><br><span class="line">      &#125;)</span><br><span class="line">      .map(<span class="function"><span class="params">name</span> =&gt;</span> capitalizeFirstLetter(name))</span><br><span class="line">      .join(<span class="string">' '</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">capitalizeFirstLetter</span>(<span class="params">string</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> string.charAt(<span class="number">0</span>).toUpperCase() + string.slice(<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">removeSpace</span>(<span class="params">string</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> string.replace(<span class="regexp">/\s/g</span>, <span class="string">""</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">formatZipcode</span>(<span class="params">string</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> string</span><br><span class="line">      .replace(<span class="regexp">/\s/g</span>, <span class="string">""</span>)</span><br><span class="line">      .split(<span class="regexp">/(\d&#123;3&#125;)/</span>)</span><br><span class="line">      .join(<span class="string">" "</span>)</span><br><span class="line">      .trim()</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/note/" rel="tag"># note</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/22/Something-about-setting-responsive-layout-on-IE/" rel="next" title="Something about setting responsive layout on IE">
+                <i class="fa fa-chevron-left"></i> Something about setting responsive layout on IE
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Shan Mi" />
+            
+              <p class="site-author-name" itemprop="name">Shan Mi</p>
+              <p class="site-description motion-element" itemprop="description">You will never know</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Shan-Mi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shan.mi.fanfan@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-create-stratege-Class"><span class="nav-number">1.</span> <span class="nav-text">1) create stratege Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-write-your-own-stratege-methods-for-validation"><span class="nav-number">2.</span> <span class="nav-text">2) write your own stratege methods for validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Create-an-instance-and-begin-our-validation-with-customized-errmsg"><span class="nav-number">3.</span> <span class="nav-text">3) Create an instance and begin our validation with customized errmsg</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shan Mi</span>
+
+  
+</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  View:<span id="busuanzi_value_site_uv"></span> times
+</span>
+</div>
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      visits
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      visits
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shanmi.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2020/05/01/Form-validation-strategy-pattern/';
+          this.page.identifier = '2020/05/01/Form-validation-strategy-pattern/';
+          this.page.title = 'Form validation (strategy pattern)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shanmi.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
+
