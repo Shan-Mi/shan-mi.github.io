@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="Some nice tricks to set pseudo elements&#39; content, nothing is impossible. 12345678910111213function inCartAnimation() &amp;#123;  cartBtn.classList.add(&#39;inCartAnimation&#39;);  let amount &#x3D; 0;  const produ">
+<meta name="description" content="Some nice tricks to set pseudo elements&#39; content, nothing is impossible.Code comes following.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pseudo elements related">
 <meta property="og:url" content="http://yoursite.com/2020/05/02/pseudo-elements-related/index.html">
 <meta property="og:site_name" content="Fanfan&#39;s Blog">
-<meta property="og:description" content="Some nice tricks to set pseudo elements&#39; content, nothing is impossible. 12345678910111213function inCartAnimation() &amp;#123;  cartBtn.classList.add(&#39;inCartAnimation&#39;);  let amount &#x3D; 0;  const produ">
+<meta property="og:description" content="Some nice tricks to set pseudo elements&#39; content, nothing is impossible.Code comes following.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-02T11:11:21.000Z">
-<meta property="article:modified_time" content="2020-05-02T12:18:14.497Z">
+<meta property="article:modified_time" content="2020-05-03T16:42:15.572Z">
 <meta property="article:author" content="Shan Mi">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
@@ -300,8 +300,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-05-02T14:18:14+02:00">
-                2020-05-02
+              <time title="Post modified" itemprop="dateModified" datetime="2020-05-03T18:42:15+02:00">
+                2020-05-03
               </time>
             
           </span>
@@ -350,13 +350,14 @@
       
 
       
-        <p>Some nice tricks to set pseudo elements&#39; content, nothing is impossible.</p>
+        <p>Some nice tricks to set pseudo elements&#39; content, nothing is impossible.<br>Code comes following.</p>
+<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inCartAnimation</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  cartBtn.classList.add(<span class="string">'inCartAnimation'</span>);</span><br><span class="line">  <span class="keyword">let</span> amount = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> productsInCart = <span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">"products"</span>));</span><br><span class="line">  productsInCart.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    amount += item.qty;</span><br><span class="line">    <span class="keyword">return</span> amount;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">'button.open-overlay.inCartAnimation'</span>).setAttribute(<span class="string">'data-before'</span>, amount)</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    cartBtn.classList.remove(<span class="string">'inCartAnimation'</span>);</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>CSS</strong></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span><span class="selector-class">.open-overlay</span><span class="selector-class">.inCartAnimation</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  @media screen and (min-width: 800px) &#123;</span><br><span class="line">    <span class="selector-tag">content</span>: <span class="selector-tag">attr</span>(<span class="selector-tag">data-before</span>);</span><br><span class="line">    <span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line">    <span class="selector-tag">width</span>: 30%;</span><br><span class="line">    <span class="selector-tag">top</span>: 29%;</span><br><span class="line">    <span class="selector-tag">right</span>: 3<span class="selector-tag">px</span>;</span><br><span class="line">    <span class="selector-tag">color</span>: <span class="selector-tag">white</span>;</span><br><span class="line">    <span class="selector-tag">animation</span>: <span class="selector-tag">slideInDown</span> 0<span class="selector-class">.7s</span> <span class="selector-tag">ease-in</span>, <span class="selector-tag">fadeOutDown</span> 0<span class="selector-class">.6s</span> <span class="selector-tag">ease</span> 0<span class="selector-class">.7s</span>, <span class="selector-tag">disappear</span> 0<span class="selector-class">.2s</span> <span class="selector-tag">infinite</span> 1<span class="selector-class">.3s</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><a href="https://css-tricks.com/change-color-of-svg-on-hover/" target="_blank" rel="noopener">One good article about how to change svg/img colors</a></p>
-<p>Maybe will updated…so, to be continued…</p>
+<p>Maybe will update later…so, to be continued…</p>
 <p>PS, I was too stupid, tried to select pseudo element by JS. JavaScript has access to the DOM, which is built when the page is loaded from HTML, and modified further when JavaScript manipulates it. A pseudo element is generated by CSS, rather than HTML or JavaScript. It is there purely to give CSS something to hang on to, but it all happens without JavaScript having any idea. – Keep in mind!!!</p>
 
       
