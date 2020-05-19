@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="A del of these tricks are not new stories, but several are pretty handy. Let&#39;s begin.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="11 JS tricks">
+<meta property="og:url" content="http://yoursite.com/2020/05/19/11-JS-tricks/index.html">
+<meta property="og:site_name" content="Fanfan&#39;s Blog">
+<meta property="og:description" content="A del of these tricks are not new stories, but several are pretty handy. Let&#39;s begin.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-19T08:27:09.000Z">
+<meta property="article:modified_time" content="2020-05-19T08:59:59.913Z">
+<meta property="article:author" content="Shan Mi">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/05/19/11-JS-tricks/"/>
+
+
+
+
+
+  <title>11 JS tricks | Fanfan's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fanfan's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Better than ever</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/19/11-JS-tricks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shan Mi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fanfan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">11 JS tricks</h1>
+        
+
+        <div class="post-meta">
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-19T10:27:09+02:00">
+                2020-05-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-05-19T10:59:59+02:00">
+                2020-05-19
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/19/11-JS-tricks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2020/05/19/11-JS-tricks/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>A del of these tricks are not new stories, but several are pretty handy. Let&#39;s begin.</p>
+<a id="more"></a>
+<h3 id="1-Filter-to-get-only-unrepeated-value"><a href="#1-Filter-to-get-only-unrepeated-value" class="headerlink" title="1.) Filter to get only unrepeated value"></a>1.) Filter to get only unrepeated value</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">1</span>];</span><br><span class="line"><span class="keyword">const</span> uniqueArray = [...new <span class="built_in">Set</span>(array)];</span><br><span class="line"><span class="built_in">console</span>.log(uniqueArray); <span class="comment">// Result: [1, 2, 3, 5]</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>此技巧适用于包含基本类型的数组：undefined，null，boolean，string和number。 （如果你有一个包含对象，函数或其他数组的数组，你需要一个不同的方法！）</p>
+</blockquote>
+<h3 id="2-AND-or-OR-🌟"><a href="#2-AND-or-OR-🌟" class="headerlink" title="2.) AND or OR 🌟"></a>2.) AND or OR 🌟</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &gt; <span class="number">100</span> ? <span class="string">"Above 100"</span> : <span class="string">"Below 100"</span>;</span><br><span class="line">x &gt; <span class="number">100</span> ? (x &gt; <span class="number">200</span> ? <span class="string">"Above 200"</span> : <span class="string">"Between 100-200"</span>) : <span class="string">"Below 100"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用&amp;&amp;将返回第一个条件为假的值。如果每个操作数的计算值都为true，则返回最后一个计算过的表达式。</span></span><br><span class="line"><span class="keyword">let</span> one = <span class="number">1</span>,</span><br><span class="line">    two = <span class="number">2</span>,</span><br><span class="line">    three = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(one &amp;&amp; two &amp;&amp; three); <span class="comment">// Result: 3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0</span> &amp;&amp; <span class="literal">null</span>); <span class="comment">// Result: 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用||将返回第一个条件为真的值。如果每个操作数的计算结果都为false，则返回最后一个计算过的表达式。</span></span><br><span class="line"><span class="keyword">let</span> one = <span class="number">1</span>,</span><br><span class="line">    two = <span class="number">2</span>,</span><br><span class="line">    three = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(one || two || three); <span class="comment">// Result: 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0</span> || <span class="literal">null</span>); <span class="comment">// Result: null</span></span><br></pre></td></tr></table></figure>
+<p><strong>e.g.1</strong></p>
+<p>假设我们想返回一个变量的长度，但是我们不知道变量的类型。</p>
+<p>我们可以使用if/else语句来检查foo是可接受的类型，但是这可能会变得非常冗长。或运行可以帮助我们简化操作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (foo || []).length;</span><br></pre></td></tr></table></figure>
+<p>如果变量foo是 true，它将被返回。否则，将返回空数组的长度:0。</p>
+<p><strong>e.g.2</strong></p>
+<p>你是否遇到过访问嵌套对象属性的问题？ 你可能不知道对象或其中一个子属性是否存在，这可能会导致令人沮丧的错误。</p>
+<p>假设我们想在this.state中访问一个名为data的属性，但是在我们的程序成功返回一个获取请求之前，data 是未定义的。</p>
+<p>根据我们使用它的位置，调用this.state.data可能会阻止我们的应用程序运行。 为了解决这个问题，我们可以将其做进一步的判断：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>.state.data || <span class="string">"Fetching Data"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>⭐⭐⭐一个新特性: <strong>Optional Chaining</strong>⭐⭐⭐</p>
+<p>过去在 Object 属性链的调用中，很容易因为某个属性不存在而导致之后出现Cannot read property xxx of undefined的错误。</p>
+<p>那 optional chaining 就是添加了?.这么个操作符，它会先判断前面的值，如果是 null 或 undefined，就结束调用、返回 undefined。</p>
+<p>例如，我们可以将上面的示例重构为 this.state.data?.()。或者，如果我们主要关注state 是否已定义，我们可以返回this.state？.data。</p>
+<p>该提案目前处于第 1 阶段，作为一项<em>实验性功能</em>。 你可以在<a href="https://github.com/tc39/proposal-optional-chaining" target="_blank" rel="noopener">这里</a>阅读它，你现在可以通过 Babel 使用你的 JavaScript，将 @babel/plugin-proposal-optional-chaining添加到你的.babelrc文件中。</p>
+<h3 id="3-to-Boolean"><a href="#3-to-Boolean" class="headerlink" title="3.) to Boolean"></a>3.) to Boolean</h3><p>除了常规的布尔值true和false之外，JavaScript 还将所有其他值视为 ‘truthy’ 或 ‘falsy’。</p>
+<p>除非另有定义，否则 JavaScript 中的所有值都是’truthy’，除了 0，””，null，undefined，NaN，当然还有false，这些都是’falsy’</p>
+<p>我们可以通过使用负算运算符轻松地在true和false之间切换。它也会将类型转换为”boolean”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isTrue = !<span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> isFalse = !<span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> alsoFalse = !!<span class="number">0</span>;</span><br><span class="line"><span class="built_in">console</span>.log(isTrue); <span class="comment">// Result: true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">true</span>); <span class="comment">// Result: "boolean"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-to-String"><a href="#4-to-String" class="headerlink" title="4.) to String"></a>4.) to String</h3><p>要快速地将数字转换为字符串，我们可以使用连接运算符<strong>+</strong>后跟一组空引号<strong>“”</strong>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> val = <span class="number">1</span> + <span class="string">""</span>;</span><br><span class="line"><span class="built_in">console</span>.log(val); <span class="comment">// Result: "1"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> val); <span class="comment">// Result: "string"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-to-Number"><a href="#5-to-Number" class="headerlink" title="5.) to Number"></a>5.) to Number</h3><p>使用加法运算符<strong>+</strong>可以快速实现相反的效果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> int = <span class="string">"15"</span>;</span><br><span class="line">int = +int;</span><br><span class="line"><span class="built_in">console</span>.log(int); <span class="comment">// Result: 15</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> int);</span><br><span class="line">Result: <span class="string">"number"</span>;</span><br></pre></td></tr></table></figure>
+<p>这也可以用于将布尔值转换为数字，如下所示</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(+<span class="literal">true</span>); <span class="comment">// Return: 1</span></span><br><span class="line"><span class="built_in">console</span>.log(+<span class="literal">false</span>); <span class="comment">// Return: 0</span></span><br></pre></td></tr></table></figure>
+<p>在某些上下文中，+将被解释为连接操作符，而不是加法操作符。当这种情况发生时(你希望返回一个整数，而不是浮点数)，您可以使用两个波浪号:~~。</p>
+<p>连续使用两个波浪有效地否定了操作，因为— ( — n — 1) — 1 = n + 1 — 1 = n。 换句话说，~—16 等于15。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> int = ~~<span class="string">"15"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(int); <span class="comment">// Result: 15</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> int);</span><br><span class="line">Result: <span class="string">"number"</span>;</span><br></pre></td></tr></table></figure>
+<p>虽然我想不出很多用例，但是按位 NOT 运算符也可以用在布尔值上：<del>true = -2和</del>false = -1。</p>
+<h3 id="6-Exponentiation-fast-writing"><a href="#6-Exponentiation-fast-writing" class="headerlink" title="6.) Exponentiation - fast writing"></a>6.) Exponentiation - fast writing</h3><p><em>This is handy</em><br>从 ES7 开始，可以使用指数运算符<strong>作为</strong>幂的简写**，这比编写Math.pow(2, 3) 更快。 这是很简单的东西，但它之所以出现在列表中，是因为没有多少教程更新过这个操作符。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span> ** <span class="number">3</span>); <span class="comment">// Result: 8</span></span><br></pre></td></tr></table></figure>
+<p>这不应该与通常用于表示指数的^符号相混淆，但在 JavaScript 中它是按位异或运算符。</p>
+<p>在 ES7 之前，只有以2为基数的幂才存在简写，使用按位左移操作符<strong>&lt;&lt;</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, n);</span><br><span class="line"><span class="number">2</span> &lt;&lt; (n - <span class="number">1</span>);</span><br><span class="line"><span class="number">2</span> ** n;</span><br></pre></td></tr></table></figure>
+<p>例如，2 &lt;&lt; 3 = 16等于2 ** 4 = 16。</p>
+<h3 id="7-Float-to-Int-faster"><a href="#7-Float-to-Int-faster" class="headerlink" title="7.) Float to Int - faster"></a>7.) Float to Int - faster</h3><p><em>interesting..</em><br>如果希望将浮点数转换为整数，可以使用Math.floor()、Math.ceil()或Math.round()。但是还有一种更快的方法可以使用<strong>|(位或运算符)</strong>将浮点数截断为整数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">23.9</span> | <span class="number">0</span>); <span class="comment">// Result: 23</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">-23.9</span> | <span class="number">0</span>); <span class="comment">// Result: -23</span></span><br></pre></td></tr></table></figure>
+<p>|的行为取决于处理的是正数还是负数，所以最好只在确定的情况下使用这个快捷方式。</p>
+<p>如果n为正，则n | 0有效地向下舍入。 如果n为负数，则有效地向上舍入。 更准确地说，此操作将<strong>删除小数点后面的任何内容</strong>，将浮点数截断为整数。</p>
+<p>你可以使用~~来获得相同的舍入效果，如上所述，实际上任何位操作符都会强制浮点数为整数。这些特殊操作之所以有效，是因为<strong>一旦强制为整数，值就保持不变</strong>。</p>
+<p><strong>应用：删除最后一个数字</strong></p>
+<p>按位或运算符还可以用于从整数的末尾删除任意数量的数字。这意味着我们不需要使用这样的代码来在类型之间进行转换。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">"1553"</span>;</span><br><span class="line"><span class="built_in">Number</span>(str.substring(<span class="number">0</span>, str.length - <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+<p>相反，按位或运算符可以这样写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log((<span class="number">1553</span> / <span class="number">10</span>) | <span class="number">0</span>); <span class="comment">// Result: 155</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="number">1553</span> / <span class="number">100</span>) | <span class="number">0</span>); <span class="comment">// Result: 15</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="number">1553</span> / <span class="number">1000</span>) | <span class="number">0</span>); <span class="comment">// Result: 1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8-bind-Class"><a href="#8-bind-Class" class="headerlink" title="8.) bind Class"></a>8.) bind Class</h3><p>我们可以在类方法中使用 ES6 箭头表示法，并且通过这样做可以<strong>隐含绑定</strong>。 这通常会在我们的类构造函数中保存几行代码，我们可以愉快地告别重复的表达式，e.g.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.myMethod = <span class="keyword">this</span>.myMethod.bind(<span class="keyword">this</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> React;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Compononent</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">  <span class="keyword">super</span>(props);</span><br><span class="line">  <span class="keyword">this</span>.state = &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">myMethod = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// This method is bound implicitly!</span></span><br><span class="line">  &#125;</span><br><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &#123;<span class="keyword">this</span>.myMethod()&#125;</span><br><span class="line">        &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-get-front-part-of-an-array"><a href="#9-get-front-part-of-an-array" class="headerlink" title="9.) get front part of an array"></a>9.) get front part of an array</h3><p>But slice() is <strong>faster</strong>.</p>
+<p>如果要从数组的末尾删除值，有比使用splice()更便捷的方法。</p>
+<p>例如，如果你知道原始数组的大小，您可以重新定义它的length属性，就像这样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line">array.length = <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(array); <span class="comment">// Result: [0, 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<p>这是一个特别简洁的解决方案。但是，我发现slice()方法的运行时更快。如果速度是你的主要目标，考虑使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let array &#x3D; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];</span><br><span class="line">array &#x3D; array.slice(0, 4);</span><br><span class="line">console.log(array); &#x2F;&#x2F; Result: [0, 1, 2, 3]</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-Get-the-last-element-in-an-array"><a href="#10-Get-the-last-element-in-an-array" class="headerlink" title="10.) Get the last element in an array"></a>10.) Get the last element in an array</h3><p><em>Not some new stories</em><br>数组方法slice()可以接受负整数，如果提供它，它将接受数组末尾的值，而不是数组开头的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line"><span class="built_in">console</span>.log(array.slice(<span class="number">-1</span>)); <span class="comment">// Result: [9]</span></span><br><span class="line"><span class="built_in">console</span>.log(array.slice(<span class="number">-2</span>)); <span class="comment">// Result: [8, 9]</span></span><br><span class="line"><span class="built_in">console</span>.log(array.slice(<span class="number">-3</span>)); <span class="comment">// Result: [7, 8, 9]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="11-Format-JSON-code"><a href="#11-Format-JSON-code" class="headerlink" title="11.) Format JSON code"></a>11.) Format JSON code</h3><p><em>Not so fancinating..</em><br>stringify()方法有两个可选参数：一个<strong>replacer函数</strong>，可用于过滤显示的 JSON 和一个空格值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(&#123; <span class="attr">alpha</span>: <span class="string">"A"</span>, <span class="attr">beta</span>: <span class="string">"B"</span> &#125;, <span class="literal">null</span>, <span class="string">"\t"</span>));</span><br><span class="line"><span class="comment">// Result:</span></span><br><span class="line"><span class="comment">// '&#123;</span></span><br><span class="line"><span class="comment">//     "alpha": A,</span></span><br><span class="line"><span class="comment">//     "beta": B</span></span><br><span class="line"><span class="comment">// &#125;'</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/13/refresh-knowledge/" rel="next" title="Refresh Knowledge">
+                <i class="fa fa-chevron-left"></i> Refresh Knowledge
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Shan Mi" />
+            
+              <p class="site-author-name" itemprop="name">Shan Mi</p>
+              <p class="site-description motion-element" itemprop="description">You will never know</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Shan-Mi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shan.mi.fanfan@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Filter-to-get-only-unrepeated-value"><span class="nav-number">1.</span> <span class="nav-text">1.) Filter to get only unrepeated value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-AND-or-OR-🌟"><span class="nav-number">2.</span> <span class="nav-text">2.) AND or OR 🌟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-to-Boolean"><span class="nav-number">3.</span> <span class="nav-text">3.) to Boolean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-to-String"><span class="nav-number">4.</span> <span class="nav-text">4.) to String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-to-Number"><span class="nav-number">5.</span> <span class="nav-text">5.) to Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Exponentiation-fast-writing"><span class="nav-number">6.</span> <span class="nav-text">6.) Exponentiation - fast writing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Float-to-Int-faster"><span class="nav-number">7.</span> <span class="nav-text">7.) Float to Int - faster</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-bind-Class"><span class="nav-number">8.</span> <span class="nav-text">8.) bind Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-get-front-part-of-an-array"><span class="nav-number">9.</span> <span class="nav-text">9.) get front part of an array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-Get-the-last-element-in-an-array"><span class="nav-number">10.</span> <span class="nav-text">10.) Get the last element in an array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-Format-JSON-code"><span class="nav-number">11.</span> <span class="nav-text">11.) Format JSON code</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shan Mi</span>
+
+  
+</div>
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  View:<span id="busuanzi_value_site_uv"></span> times
+</span>
+</div>
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      visits
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      visits
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shanmi.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2020/05/19/11-JS-tricks/';
+          this.page.identifier = '2020/05/19/11-JS-tricks/';
+          this.page.title = '11 JS tricks';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shanmi.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
+
