@@ -21,21 +21,21 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Finally got updated">
-<meta property="og:url" content="http://yoursite.com/2020/03/16/Finally-got-updated/index.html">
+  <meta name="description" content="First period of intership (LIA) ended this week. Although we built our projects with TS, but that awkward moment kept coming, like Lukas explained something about index signature… Just like an idiot!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TS basics review">
+<meta property="og:url" content="http://yoursite.com/2020/12/13/TS-recap/index.html">
 <meta property="og:site_name" content="Fanfan&#39;s Blog">
+<meta property="og:description" content="First period of intership (LIA) ended this week. Although we built our projects with TS, but that awkward moment kept coming, like Lukas explained something about index signature… Just like an idiot!">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.ibb.co/dbDdVqX/20200316213316.jpg">
-<meta property="og:image" content="https://i.ibb.co/XCqN31R/20200316215008.jpg">
-<meta property="article:published_time" content="2020-03-16T20:36:41.000Z">
-<meta property="article:modified_time" content="2020-05-03T16:48:56.204Z">
+<meta property="article:published_time" content="2020-12-13T19:43:51.000Z">
+<meta property="article:modified_time" content="2020-12-13T20:00:02.462Z">
 <meta property="article:author" content="Shan Mi">
-<meta property="article:tag" content="random">
+<meta property="article:tag" content="note">
+<meta property="article:tag" content="TypeScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.ibb.co/dbDdVqX/20200316213316.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2020/03/16/Finally-got-updated/">
+<link rel="canonical" href="http://yoursite.com/2020/12/13/TS-recap/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>Finally got updated | Fanfan's Blog</title>
+  <title>TS basics review | Fanfan's Blog</title>
   
 
 
@@ -164,7 +164,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/Finally-got-updated/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/13/TS-recap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -177,7 +177,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Finally got updated
+          TS basics review
         </h1>
 
         <div class="post-meta">
@@ -186,16 +186,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-03-16 21:36:41" itemprop="dateCreated datePublished" datetime="2020-03-16T21:36:41+01:00">2020-03-16</time>
+              <time title="Created: 2020-12-13 20:43:51 / Modified: 21:00:02" itemprop="dateCreated datePublished" datetime="2020-12-13T20:43:51+01:00">2020-12-13</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-03 18:48:56" itemprop="dateModified" datetime="2020-05-03T18:48:56+02:00">2020-05-03</time>
-              </span>
 
           
             <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
@@ -213,8 +207,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2020/03/16/Finally-got-updated/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/16/Finally-got-updated/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2020/12/13/TS-recap/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/12/13/TS-recap/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -229,13 +223,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <img src="https://i.ibb.co/dbDdVqX/20200316213316.jpg" style="width: 100%;" alt="My new weapon" border="0">
+        <p>First period of intership (LIA) ended this week. Although we built our projects with TS, but that awkward moment kept coming, like Lukas explained something about index signature… Just like an idiot!</p>
 <a id="more"></a>
+<p>Oh, besides, now I can never use back windows… Now when I am writing this blog on my PC, I kept pressing wrong shortkey for everything…lol</p>
+<p>Since yesterday, I decide to go through Mike North’s TypeScript course on FrontendMasters again. Well, technically, that is not true, because I never finished the first round. So this time, after working with TS for three months, I kinda finally began to understand what this smart guy was talking about (same thing with FP courses). So review is really awesome.</p>
+<hr>
+<h2 id="1-interface-amp-type"><a href="#1-interface-amp-type" class="headerlink" title="1. interface &amp; type"></a>1. interface &amp; type</h2><p>Both of them are ways of giving a structure a name that we can import and export from modules and we can refer to.</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Call, Construct and Index signatures</li>
+<li><input checked="" disabled="" type="checkbox"> “Open interfaces” : you can augment types that you may import from a library somewhere</li>
+<li><input checked="" disabled="" type="checkbox"> Access modifier keywords: give us control over who can see methods and instance data when it comes to classes</li>
+<li><input checked="" disabled="" type="checkbox"> Heritage clauses (“extends”, “implements”)</li>
+</ul>
+<h2 id="1-Type-Alias"><a href="#1-Type-Alias" class="headerlink" title="1. Type Alias"></a>1. Type Alias</h2><blockquote>
+<p>giving a type a name</p>
+</blockquote>
+<p>It is more <em>flexible</em> than interface, because we cannot do the same thing on interface.</p>
+<p>Exclusively work with a type space here. Will not be compiled to JS.</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// this is the ONLY time you will see a type on the RHS of assignment</span></span><br><span class="line"><span class="keyword">type</span> HasName = &#123; name: <span class="built_in">string</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// self-referencing types don't work!</span></span><br><span class="line"><span class="keyword">type</span> NumVal = <span class="number">1</span>|<span class="number">2</span>|<span class="number">3</span>|NumArr</span><br><span class="line"><span class="keyword">type</span> NumArr = NumVal[]</span><br></pre></td></tr></table></figure>
 
-<p>After two weeks maybe, finally got my screen home. That is another thing that I love about China - lightning speed logistics. Totally got spoiled by that, I can always get what I ordered in the same day almost without any extra cost. Maxmum waiting time is 3 days (you know it is a big country), of course you need to choose those top 4 or 5 best logistics companies. Given to the areas of Sweden and China, and put the cost into consideration, PostNord should have gone bankrupt for centries ago. ╮（﹀_﹀）╭</p>
-<p>PS. About school, this is how I feel…</p>
-<img src="https://i.ibb.co/XCqN31R/20200316215008.jpg" alt="helpless school" style="width:30%; margin-left: 0;" border="0">
-(°ー°〃)
+<h2 id="interface"><a href="#interface" class="headerlink" title="interface"></a>interface</h2><blockquote>
+<p>Interface can describe object, function, arrays but not primitive types or operators used with types (i.e. string/number..)</p>
+</blockquote>
+<blockquote>
+<p>Type aliase can handle primitive stuff, everything that interface can handle</p>
+</blockquote>
+<blockquote>
+<p>Interfaces are limited to JavaScript object and subtypes (arrays &amp; functions) – things that have prototypes</p>
+</blockquote>
+<p>can have only one string index signature and one number signature at most, if we change numberName: string to numberName: number, it will act slightly different when we try to access property that way.</p>
+<h2 id="index-signature"><a href="#index-signature" class="headerlink" title="index signature"></a>index signature</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> PhoneNumberDict &#123;</span><br><span class="line">  <span class="comment">// arr[0],  foo['myProp']</span></span><br><span class="line">  [numberName: <span class="built_in">string</span>]:</span><br><span class="line">    | <span class="literal">undefined</span></span><br><span class="line">    | &#123;</span><br><span class="line">        areaCode: <span class="built_in">number</span>;</span><br><span class="line">        num: <span class="built_in">number</span>;</span><br><span class="line">      &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="combining-interfaces"><a href="#combining-interfaces" class="headerlink" title="combining interfaces"></a>combining interfaces</h3><p>declaration merging, we can stack indexes on top of other things</p>
+<p><strong>type</strong>: sort out eagerly</p>
+<p><strong>interface</strong>: sort out lazy</p>
+<p>Type aliases are extremely flexible, they can give a name to any type. Anything you would use as the type of variable fits in a type alias.</p>
+<p>Interfaces are thing that you want to use for the things that are objects…</p>
+<hr>
+<p>To be continued…</p>
+
     </div>
 
     
@@ -244,7 +270,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/random/" rel="tag"># random</a>
+              <a href="/tags/note/" rel="tag"># note</a>
+              <a href="/tags/TypeScript/" rel="tag"># TypeScript</a>
           </div>
 
         
@@ -253,13 +280,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/14/Recent-daily-lives/" rel="prev" title="Recent daily lives">
-      <i class="fa fa-chevron-left"></i> Recent daily lives
+    <a href="/2020/10/31/Test/" rel="prev" title="Test">
+      <i class="fa fa-chevron-left"></i> Test
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/18/Homesick-more-than-ever/" rel="next" title="Homesick, more than ever">
-      Homesick, more than ever <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -325,6 +349,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-interface-amp-type"><span class="nav-number">1.</span> <span class="nav-text">1. interface &amp; type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Type-Alias"><span class="nav-number">2.</span> <span class="nav-text">1. Type Alias</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#interface"><span class="nav-number">3.</span> <span class="nav-text">interface</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#index-signature"><span class="nav-number">4.</span> <span class="nav-text">index signature</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#combining-interfaces"><span class="nav-number">4.1.</span> <span class="nav-text">combining interfaces</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -479,9 +504,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://yoursite.com/2020/03/16/Finally-got-updated/";
-    this.page.identifier = "2020/03/16/Finally-got-updated/";
-    this.page.title = "Finally got updated";
+    this.page.url = "http://yoursite.com/2020/12/13/TS-recap/";
+    this.page.identifier = "2020/12/13/TS-recap/";
+    this.page.title = "TS basics review";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
